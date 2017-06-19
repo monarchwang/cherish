@@ -1,9 +1,9 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc://localhost:3306/cherish
-    username: root
-    password: 123456
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc://localhost:3306/cherish
+#    username: root
+#    password: 123456
   data:
     mongodb:
       host: 172.17.0.73
@@ -14,7 +14,23 @@ spring:
     port: 6379
     password: monarchwang
     timeout: 3000
+
+
+druid:
+    url: jdbc:mysql://localhost:3306/cherish
+    username: root
+    password: 123456
+    initial-size: 10
+    min-idle: 10
+    max-active: 20
+    test-on-borrow: true
+
 server:
   port: 8090
-
-
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+logging:
+  level: trace
