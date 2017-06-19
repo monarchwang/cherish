@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc://localhost:3306/cherish
+    username: root
+    password: 123456
+  data:
+    mongodb:
+      host: 172.17.0.73
+      port: 27017
+      database: cherish
+  redis:
+    host: 172.17.0.73
+    port: 6379
+    password: monarchwang
+    timeout: 3000
+server:
+  port: 8090
+
+
