@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = {"com.monarchwang.website"})
-@MapperScan("com.monarchwang.website.dao.mapper")
+@MapperScan("com.monarchwang.website.mapper")
 public class Config {
 
 	private static final Logger LOG = LoggerFactory.getLogger(Config.class);
