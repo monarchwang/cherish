@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monarchwang.website.mapper.ArticleMapper">
+    <resultMap id="BaseResultMap" type="com.monarchwang.website.model.Article">
+        <!-- @mbggenerated-mdx -->
+        <id column="id" jdbcType="CHAR" property="id" />
+        <result column="user_id" jdbcType="CHAR" property="userId" />
+        <result column="info_id" jdbcType="CHAR" property="infoId" />
+        <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="last_modified_by" jdbcType="CHAR" property="lastModifiedBy" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!-- @mbggenerated-mdx -->
+        id, user_id, info_id, delete_flag, create_time, update_time, last_modified_by
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!-- @mbggenerated-mdx -->
+        select 
+        <include refid="Base_Column_List" />
+        from t_article
+        where id = #{id,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!-- @mbggenerated-mdx -->
+        delete from t_article
+        where id = #{id,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.monarchwang.website.model.Article">
+        <!-- @mbggenerated-mdx -->
+        insert into t_article (id, user_id, info_id, delete_flag, 
+            create_time, update_time, last_modified_by
+            )
+        values (#{id,jdbcType=CHAR}, #{userId,jdbcType=CHAR}, #{infoId,jdbcType=CHAR}, #{deleteFlag,jdbcType=TINYINT}, 
+            #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{lastModifiedBy,jdbcType=CHAR}
+            )
+    </insert>
+    <insert id="insertSelective" parameterType="com.monarchwang.website.model.Article">
+        <!-- @mbggenerated-mdx -->
+        insert into t_article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="infoId != null">
+                info_id,
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="lastModifiedBy != null">
+                last_modified_by,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=CHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=CHAR},
+            </if>
+            <if test="infoId != null">
+                #{infoId,jdbcType=CHAR},
+            </if>
+            <if test="deleteFlag != null">
+                #{deleteFlag,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastModifiedBy != null">
+                #{lastModifiedBy,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.monarchwang.website.model.Article">
+        <!-- @mbggenerated-mdx -->
+        update t_article
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=CHAR},
+            </if>
+            <if test="infoId != null">
+                info_id = #{infoId,jdbcType=CHAR},
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag = #{deleteFlag,jdbcType=TINYINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastModifiedBy != null">
+                last_modified_by = #{lastModifiedBy,jdbcType=CHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.monarchwang.website.model.Article">
+        <!-- @mbggenerated-mdx -->
+        update t_article
+        set user_id = #{userId,jdbcType=CHAR},
+            info_id = #{infoId,jdbcType=CHAR},
+            delete_flag = #{deleteFlag,jdbcType=TINYINT},
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+            update_time = #{updateTime,jdbcType=TIMESTAMP},
+            last_modified_by = #{lastModifiedBy,jdbcType=CHAR}
+        where id = #{id,jdbcType=CHAR}
+    </update>
+</mapper>
