@@ -1,3 +1,6 @@
+/**
+ * Copyright (C), monarchwang
+ */
 package com.monarchwang.website.model;
 
 import java.io.Serializable;
@@ -12,7 +15,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String id;
 
@@ -20,7 +23,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.username
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String username;
 
@@ -28,7 +31,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.nick_name
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String nickName;
 
@@ -36,7 +39,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.phone
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String phone;
 
@@ -44,7 +47,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.email
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String email;
 
@@ -52,7 +55,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.password
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String password;
 
@@ -60,7 +63,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.head_img
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String headImg;
 
@@ -68,7 +71,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Byte deleteFlag;
 
@@ -76,7 +79,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Date createTime;
 
@@ -84,7 +87,7 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Date updateTime;
 
@@ -92,14 +95,14 @@ public class User implements Serializable {
      *
      * This field corresponds to the database column t_user.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String lastModifiedBy;
 
     /**
      * This field corresponds to the database table t_user
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private static final long serialVersionUID = 1L;
 
@@ -108,7 +111,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getId() {
         return id;
@@ -119,7 +122,7 @@ public class User implements Serializable {
      *
      * @param id the value for t_user.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
@@ -130,7 +133,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.username
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getUsername() {
         return username;
@@ -141,7 +144,7 @@ public class User implements Serializable {
      *
      * @param username the value for t_user.username
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
@@ -152,7 +155,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.nick_name
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getNickName() {
         return nickName;
@@ -163,7 +166,7 @@ public class User implements Serializable {
      *
      * @param nickName the value for t_user.nick_name
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setNickName(String nickName) {
         this.nickName = nickName == null ? null : nickName.trim();
@@ -174,7 +177,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.phone
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getPhone() {
         return phone;
@@ -185,7 +188,7 @@ public class User implements Serializable {
      *
      * @param phone the value for t_user.phone
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
@@ -196,7 +199,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.email
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getEmail() {
         return email;
@@ -207,7 +210,7 @@ public class User implements Serializable {
      *
      * @param email the value for t_user.email
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
@@ -218,7 +221,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.password
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getPassword() {
         return password;
@@ -229,7 +232,7 @@ public class User implements Serializable {
      *
      * @param password the value for t_user.password
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
@@ -240,7 +243,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.head_img
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getHeadImg() {
         return headImg;
@@ -251,7 +254,7 @@ public class User implements Serializable {
      *
      * @param headImg the value for t_user.head_img
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setHeadImg(String headImg) {
         this.headImg = headImg == null ? null : headImg.trim();
@@ -262,7 +265,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Byte getDeleteFlag() {
         return deleteFlag;
@@ -273,7 +276,7 @@ public class User implements Serializable {
      *
      * @param deleteFlag the value for t_user.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setDeleteFlag(Byte deleteFlag) {
         this.deleteFlag = deleteFlag;
@@ -284,7 +287,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Date getCreateTime() {
         return createTime;
@@ -295,7 +298,7 @@ public class User implements Serializable {
      *
      * @param createTime the value for t_user.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
@@ -306,7 +309,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Date getUpdateTime() {
         return updateTime;
@@ -317,7 +320,7 @@ public class User implements Serializable {
      *
      * @param updateTime the value for t_user.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
@@ -328,7 +331,7 @@ public class User implements Serializable {
      *
      * @return the value of t_user.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getLastModifiedBy() {
         return lastModifiedBy;
@@ -339,7 +342,7 @@ public class User implements Serializable {
      *
      * @param lastModifiedBy the value for t_user.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.trim();

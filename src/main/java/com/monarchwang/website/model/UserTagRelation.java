@@ -1,3 +1,6 @@
+/**
+ * Copyright (C), monarchwang
+ */
 package com.monarchwang.website.model;
 
 import java.io.Serializable;
@@ -12,7 +15,7 @@ public class UserTagRelation implements Serializable {
      *
      * This field corresponds to the database column t_user_tag_relation.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String id;
 
@@ -20,7 +23,7 @@ public class UserTagRelation implements Serializable {
      *
      * This field corresponds to the database column t_user_tag_relation.tag_id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String tagId;
 
@@ -28,7 +31,7 @@ public class UserTagRelation implements Serializable {
      *
      * This field corresponds to the database column t_user_tag_relation.user_id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String userId;
 
@@ -36,7 +39,7 @@ public class UserTagRelation implements Serializable {
      *
      * This field corresponds to the database column t_user_tag_relation.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Byte deleteFlag;
 
@@ -44,7 +47,7 @@ public class UserTagRelation implements Serializable {
      *
      * This field corresponds to the database column t_user_tag_relation.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Date createTime;
 
@@ -52,7 +55,7 @@ public class UserTagRelation implements Serializable {
      *
      * This field corresponds to the database column t_user_tag_relation.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Date updateTime;
 
@@ -60,14 +63,14 @@ public class UserTagRelation implements Serializable {
      *
      * This field corresponds to the database column t_user_tag_relation.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String lastModifiedBy;
 
     /**
      * This field corresponds to the database table t_user_tag_relation
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private static final long serialVersionUID = 1L;
 
@@ -76,7 +79,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return the value of t_user_tag_relation.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getId() {
         return id;
@@ -87,7 +90,7 @@ public class UserTagRelation implements Serializable {
      *
      * @param id the value for t_user_tag_relation.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
@@ -98,7 +101,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return the value of t_user_tag_relation.tag_id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getTagId() {
         return tagId;
@@ -109,7 +112,7 @@ public class UserTagRelation implements Serializable {
      *
      * @param tagId the value for t_user_tag_relation.tag_id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setTagId(String tagId) {
         this.tagId = tagId == null ? null : tagId.trim();
@@ -120,7 +123,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return the value of t_user_tag_relation.user_id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getUserId() {
         return userId;
@@ -131,7 +134,7 @@ public class UserTagRelation implements Serializable {
      *
      * @param userId the value for t_user_tag_relation.user_id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
@@ -142,7 +145,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return the value of t_user_tag_relation.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Byte getDeleteFlag() {
         return deleteFlag;
@@ -153,7 +156,7 @@ public class UserTagRelation implements Serializable {
      *
      * @param deleteFlag the value for t_user_tag_relation.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setDeleteFlag(Byte deleteFlag) {
         this.deleteFlag = deleteFlag;
@@ -164,7 +167,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return the value of t_user_tag_relation.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Date getCreateTime() {
         return createTime;
@@ -175,7 +178,7 @@ public class UserTagRelation implements Serializable {
      *
      * @param createTime the value for t_user_tag_relation.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
@@ -186,7 +189,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return the value of t_user_tag_relation.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Date getUpdateTime() {
         return updateTime;
@@ -197,7 +200,7 @@ public class UserTagRelation implements Serializable {
      *
      * @param updateTime the value for t_user_tag_relation.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
@@ -208,7 +211,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return the value of t_user_tag_relation.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getLastModifiedBy() {
         return lastModifiedBy;
@@ -219,7 +222,7 @@ public class UserTagRelation implements Serializable {
      *
      * @param lastModifiedBy the value for t_user_tag_relation.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.trim();

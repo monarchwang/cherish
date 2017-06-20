@@ -1,9 +1,22 @@
+server:
+  port: 8080
 spring:
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc://localhost:3306/cherish
-#    username: root
-#    password: 123456
+  datasource:
+      name: dataSource
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/cherish
+      username: root
+      password: 123456
+      initial-size: 1
+      min-idle: 1
+      max-wait: 6000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select *
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
   data:
     mongodb:
       host: 172.17.0.73
@@ -15,22 +28,16 @@ spring:
     password: monarchwang
     timeout: 3000
 
-
-druid:
-    url: jdbc:mysql://localhost:3306/cherish
-    username: root
-    password: 123456
-    initial-size: 10
-    min-idle: 10
-    max-active: 20
-    test-on-borrow: true
-
-server:
-  port: 8090
 pagehelper:
   helper-dialect: mysql
-  reasonable: true
+  #启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页； 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据。
+  reasonable: false
   support-methods-arguments: true
   params: count=countSql
 logging:
   level: trace
+mapper:
+    mappers:
+        - com.monarchwang.website.utils.MyMapper
+    not-empty: false
+    identity: MYSQL

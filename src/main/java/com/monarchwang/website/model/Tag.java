@@ -1,3 +1,6 @@
+/**
+ * Copyright (C), monarchwang
+ */
 package com.monarchwang.website.model;
 
 import java.io.Serializable;
@@ -12,7 +15,7 @@ public class Tag implements Serializable {
      *
      * This field corresponds to the database column t_tag.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String id;
 
@@ -20,7 +23,7 @@ public class Tag implements Serializable {
      *
      * This field corresponds to the database column t_tag.name
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String name;
 
@@ -28,7 +31,7 @@ public class Tag implements Serializable {
      *
      * This field corresponds to the database column t_tag.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Byte deleteFlag;
 
@@ -36,7 +39,7 @@ public class Tag implements Serializable {
      *
      * This field corresponds to the database column t_tag.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Date createTime;
 
@@ -44,7 +47,7 @@ public class Tag implements Serializable {
      *
      * This field corresponds to the database column t_tag.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private Date updateTime;
 
@@ -52,14 +55,14 @@ public class Tag implements Serializable {
      *
      * This field corresponds to the database column t_tag.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private String lastModifiedBy;
 
     /**
      * This field corresponds to the database table t_tag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     private static final long serialVersionUID = 1L;
 
@@ -68,7 +71,7 @@ public class Tag implements Serializable {
      *
      * @return the value of t_tag.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getId() {
         return id;
@@ -79,7 +82,7 @@ public class Tag implements Serializable {
      *
      * @param id the value for t_tag.id
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
@@ -90,7 +93,7 @@ public class Tag implements Serializable {
      *
      * @return the value of t_tag.name
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getName() {
         return name;
@@ -101,7 +104,7 @@ public class Tag implements Serializable {
      *
      * @param name the value for t_tag.name
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
@@ -112,7 +115,7 @@ public class Tag implements Serializable {
      *
      * @return the value of t_tag.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Byte getDeleteFlag() {
         return deleteFlag;
@@ -123,7 +126,7 @@ public class Tag implements Serializable {
      *
      * @param deleteFlag the value for t_tag.delete_flag
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setDeleteFlag(Byte deleteFlag) {
         this.deleteFlag = deleteFlag;
@@ -134,7 +137,7 @@ public class Tag implements Serializable {
      *
      * @return the value of t_tag.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Date getCreateTime() {
         return createTime;
@@ -145,7 +148,7 @@ public class Tag implements Serializable {
      *
      * @param createTime the value for t_tag.create_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
@@ -156,7 +159,7 @@ public class Tag implements Serializable {
      *
      * @return the value of t_tag.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public Date getUpdateTime() {
         return updateTime;
@@ -167,7 +170,7 @@ public class Tag implements Serializable {
      *
      * @param updateTime the value for t_tag.update_time
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
@@ -178,7 +181,7 @@ public class Tag implements Serializable {
      *
      * @return the value of t_tag.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public String getLastModifiedBy() {
         return lastModifiedBy;
@@ -189,7 +192,7 @@ public class Tag implements Serializable {
      *
      * @param lastModifiedBy the value for t_tag.last_modified_by
      *
-     * @mbggenerated-mdx
+     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
      */
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.trim();

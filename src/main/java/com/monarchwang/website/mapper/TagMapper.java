@@ -1,50 +1,14 @@
+/**
+ * Copyright (C), monarchwang
+ */
 package com.monarchwang.website.mapper;
 
 import com.monarchwang.website.model.Tag;
+import com.monarchwang.website.utils.MyMapper;
 
 /**
  * @mbggenerated-mdx
  */
-public interface TagMapper {
-    /**
-     * This method corresponds to the database table t_tag
-     *
-     * @mbggenerated-mdx
-     */
-    int deleteByPrimaryKey(String id);
+public interface TagMapper extends MyMapper<Tag> {
 
-    /**
-     * This method corresponds to the database table t_tag
-     *
-     * @mbggenerated-mdx
-     */
-    int insert(Tag record);
-
-    /**
-     * This method corresponds to the database table t_tag
-     *
-     * @mbggenerated-mdx
-     */
-    int insertSelective(Tag record);
-
-    /**
-     * This method corresponds to the database table t_tag
-     *
-     * @mbggenerated-mdx
-     */
-    Tag selectByPrimaryKey(String id);
-
-    /**
-     * This method corresponds to the database table t_tag
-     *
-     * @mbggenerated-mdx
-     */
-    int updateByPrimaryKeySelective(Tag record);
-
-    /**
-     * This method corresponds to the database table t_tag
-     *
-     * @mbggenerated-mdx
-     */
-    int updateByPrimaryKey(Tag record);
 }
