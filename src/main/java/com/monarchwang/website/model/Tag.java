@@ -1,198 +1,151 @@
-/**
- * Copyright (C), monarchwang
- */
 package com.monarchwang.website.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
 
-/**
- * @mbggenerated-mdx
- */
 public class Tag implements Serializable {
-
     /**
-     *
-     * This field corresponds to the database column t_tag.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 主键
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     /**
-     *
-     * This field corresponds to the database column t_tag.name
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 标签名称
      */
     private String name;
 
     /**
-     *
-     * This field corresponds to the database column t_tag.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 当前记录是否有效@0:有效@1:无效
      */
+    @Column(name = "delete_flag")
     private Byte deleteFlag;
 
     /**
-     *
-     * This field corresponds to the database column t_tag.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 创建时间
      */
+    @Column(name = "create_time")
     private Date createTime;
 
     /**
-     *
-     * This field corresponds to the database column t_tag.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 记录最后更新时间
      */
+    @Column(name = "update_time")
     private Date updateTime;
 
     /**
-     *
-     * This field corresponds to the database column t_tag.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 最后一次修改者id
      */
+    @Column(name = "last_modified_by")
     private String lastModifiedBy;
 
-    /**
-     * This field corresponds to the database table t_tag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
-     */
     private static final long serialVersionUID = 1L;
 
     /**
-     * This method returns the value of the database column t_tag.id
+     * 获取主键
      *
-     * @return the value of t_tag.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return id - 主键
      */
     public String getId() {
         return id;
     }
 
     /**
-     * This method sets the value of the database column t_tag.id
+     * 设置主键
      *
-     * @param id the value for t_tag.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param id 主键
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
     }
 
     /**
-     * This method returns the value of the database column t_tag.name
+     * 获取标签名称
      *
-     * @return the value of t_tag.name
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return name - 标签名称
      */
     public String getName() {
         return name;
     }
 
     /**
-     * This method sets the value of the database column t_tag.name
+     * 设置标签名称
      *
-     * @param name the value for t_tag.name
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param name 标签名称
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
     }
 
     /**
-     * This method returns the value of the database column t_tag.delete_flag
+     * 获取当前记录是否有效@0:有效@1:无效
      *
-     * @return the value of t_tag.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return delete_flag - 当前记录是否有效@0:有效@1:无效
      */
     public Byte getDeleteFlag() {
         return deleteFlag;
     }
 
     /**
-     * This method sets the value of the database column t_tag.delete_flag
+     * 设置当前记录是否有效@0:有效@1:无效
      *
-     * @param deleteFlag the value for t_tag.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param deleteFlag 当前记录是否有效@0:有效@1:无效
      */
     public void setDeleteFlag(Byte deleteFlag) {
         this.deleteFlag = deleteFlag;
     }
 
     /**
-     * This method returns the value of the database column t_tag.create_time
+     * 获取创建时间
      *
-     * @return the value of t_tag.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return create_time - 创建时间
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     * This method sets the value of the database column t_tag.create_time
+     * 设置创建时间
      *
-     * @param createTime the value for t_tag.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param createTime 创建时间
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     * This method returns the value of the database column t_tag.update_time
+     * 获取记录最后更新时间
      *
-     * @return the value of t_tag.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return update_time - 记录最后更新时间
      */
     public Date getUpdateTime() {
         return updateTime;
     }
 
     /**
-     * This method sets the value of the database column t_tag.update_time
+     * 设置记录最后更新时间
      *
-     * @param updateTime the value for t_tag.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param updateTime 记录最后更新时间
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
     /**
-     * This method returns the value of the database column t_tag.last_modified_by
+     * 获取最后一次修改者id
      *
-     * @return the value of t_tag.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return last_modified_by - 最后一次修改者id
      */
     public String getLastModifiedBy() {
         return lastModifiedBy;
     }
 
     /**
-     * This method sets the value of the database column t_tag.last_modified_by
+     * 设置最后一次修改者id
      *
-     * @param lastModifiedBy the value for t_tag.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param lastModifiedBy 最后一次修改者id
      */
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.trim();

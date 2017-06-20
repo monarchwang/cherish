@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.monarchwang.website.mapper.UserMapper;
 import com.monarchwang.website.model.User;
 import com.monarchwang.website.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> list(Integer page) {
 
-		PageHelper.startPage(page,1);
+		PageHelper.startPage(page,5);
 
 		return userMapper.selectAll();
 	}

@@ -1,228 +1,177 @@
-/**
- * Copyright (C), monarchwang
- */
 package com.monarchwang.website.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
 
-/**
- * @mbggenerated-mdx
- */
+@Table(name = "user_tag_relation")
 public class UserTagRelation implements Serializable {
-
     /**
-     *
-     * This field corresponds to the database column t_user_tag_relation.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 主键
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     /**
-     *
-     * This field corresponds to the database column t_user_tag_relation.tag_id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 标签id
      */
+    @Column(name = "tag_id")
     private String tagId;
 
     /**
-     *
-     * This field corresponds to the database column t_user_tag_relation.user_id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 用户id
      */
+    @Column(name = "user_id")
     private String userId;
 
     /**
-     *
-     * This field corresponds to the database column t_user_tag_relation.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 当前记录是否有效@0:有效@1:无效
      */
+    @Column(name = "delete_flag")
     private Byte deleteFlag;
 
     /**
-     *
-     * This field corresponds to the database column t_user_tag_relation.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 创建时间
      */
+    @Column(name = "create_time")
     private Date createTime;
 
     /**
-     *
-     * This field corresponds to the database column t_user_tag_relation.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 记录最后更新时间
      */
+    @Column(name = "update_time")
     private Date updateTime;
 
     /**
-     *
-     * This field corresponds to the database column t_user_tag_relation.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 最后一次修改者id
      */
+    @Column(name = "last_modified_by")
     private String lastModifiedBy;
 
-    /**
-     * This field corresponds to the database table t_user_tag_relation
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
-     */
     private static final long serialVersionUID = 1L;
 
     /**
-     * This method returns the value of the database column t_user_tag_relation.id
+     * 获取主键
      *
-     * @return the value of t_user_tag_relation.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return id - 主键
      */
     public String getId() {
         return id;
     }
 
     /**
-     * This method sets the value of the database column t_user_tag_relation.id
+     * 设置主键
      *
-     * @param id the value for t_user_tag_relation.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param id 主键
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user_tag_relation.tag_id
+     * 获取标签id
      *
-     * @return the value of t_user_tag_relation.tag_id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return tag_id - 标签id
      */
     public String getTagId() {
         return tagId;
     }
 
     /**
-     * This method sets the value of the database column t_user_tag_relation.tag_id
+     * 设置标签id
      *
-     * @param tagId the value for t_user_tag_relation.tag_id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param tagId 标签id
      */
     public void setTagId(String tagId) {
         this.tagId = tagId == null ? null : tagId.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user_tag_relation.user_id
+     * 获取用户id
      *
-     * @return the value of t_user_tag_relation.user_id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return user_id - 用户id
      */
     public String getUserId() {
         return userId;
     }
 
     /**
-     * This method sets the value of the database column t_user_tag_relation.user_id
+     * 设置用户id
      *
-     * @param userId the value for t_user_tag_relation.user_id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param userId 用户id
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user_tag_relation.delete_flag
+     * 获取当前记录是否有效@0:有效@1:无效
      *
-     * @return the value of t_user_tag_relation.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return delete_flag - 当前记录是否有效@0:有效@1:无效
      */
     public Byte getDeleteFlag() {
         return deleteFlag;
     }
 
     /**
-     * This method sets the value of the database column t_user_tag_relation.delete_flag
+     * 设置当前记录是否有效@0:有效@1:无效
      *
-     * @param deleteFlag the value for t_user_tag_relation.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param deleteFlag 当前记录是否有效@0:有效@1:无效
      */
     public void setDeleteFlag(Byte deleteFlag) {
         this.deleteFlag = deleteFlag;
     }
 
     /**
-     * This method returns the value of the database column t_user_tag_relation.create_time
+     * 获取创建时间
      *
-     * @return the value of t_user_tag_relation.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return create_time - 创建时间
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     * This method sets the value of the database column t_user_tag_relation.create_time
+     * 设置创建时间
      *
-     * @param createTime the value for t_user_tag_relation.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param createTime 创建时间
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     * This method returns the value of the database column t_user_tag_relation.update_time
+     * 获取记录最后更新时间
      *
-     * @return the value of t_user_tag_relation.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return update_time - 记录最后更新时间
      */
     public Date getUpdateTime() {
         return updateTime;
     }
 
     /**
-     * This method sets the value of the database column t_user_tag_relation.update_time
+     * 设置记录最后更新时间
      *
-     * @param updateTime the value for t_user_tag_relation.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param updateTime 记录最后更新时间
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
     /**
-     * This method returns the value of the database column t_user_tag_relation.last_modified_by
+     * 获取最后一次修改者id
      *
-     * @return the value of t_user_tag_relation.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return last_modified_by - 最后一次修改者id
      */
     public String getLastModifiedBy() {
         return lastModifiedBy;
     }
 
     /**
-     * This method sets the value of the database column t_user_tag_relation.last_modified_by
+     * 设置最后一次修改者id
      *
-     * @param lastModifiedBy the value for t_user_tag_relation.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param lastModifiedBy 最后一次修改者id
      */
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.trim();

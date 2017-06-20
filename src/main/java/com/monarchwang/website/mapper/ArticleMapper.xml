@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.monarchwang.website.mapper.ArticleMapper">
-    <resultMap id="BaseResultMap" type="com.monarchwang.website.model.Article">
-        <!-- @mbggenerated-mdx -->
-        <id column="id" jdbcType="CHAR" property="id" />
-        <result column="user_id" jdbcType="CHAR" property="userId" />
-        <result column="info_id" jdbcType="CHAR" property="infoId" />
-        <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="last_modified_by" jdbcType="CHAR" property="lastModifiedBy" />
-    </resultMap>
-    <sql id="Base_Column_List">
-        <!-- @mbggenerated-mdx -->
-        id, user_id, info_id, delete_flag, create_time, update_time, last_modified_by
-    </sql>
-    
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.monarchwang.website.mapper.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.monarchwang.website.model.Article" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="user_id" property="userId" jdbcType="CHAR" />
+    <result column="info_id" property="infoId" jdbcType="CHAR" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="last_modified_by" property="lastModifiedBy" jdbcType="CHAR" />
+  </resultMap>
 </mapper>

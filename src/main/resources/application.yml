@@ -27,6 +27,8 @@ spring:
     port: 6379
     password: monarchwang
     timeout: 3000
+  jpa:
+    show-sql: true
 
 pagehelper:
   helper-dialect: mysql

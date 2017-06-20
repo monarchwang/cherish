@@ -1,348 +1,268 @@
-/**
- * Copyright (C), monarchwang
- */
 package com.monarchwang.website.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
 
-/**
- * @mbggenerated-mdx
- */
 public class User implements Serializable {
-
     /**
-     *
-     * This field corresponds to the database column t_user.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 主键
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     /**
-     *
-     * This field corresponds to the database column t_user.username
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 姓名
      */
     private String username;
 
     /**
-     *
-     * This field corresponds to the database column t_user.nick_name
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 昵称
      */
+    @Column(name = "nick_name")
     private String nickName;
 
     /**
-     *
-     * This field corresponds to the database column t_user.phone
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 手机号
      */
     private String phone;
 
     /**
-     *
-     * This field corresponds to the database column t_user.email
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 邮箱
      */
     private String email;
 
     /**
-     *
-     * This field corresponds to the database column t_user.password
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 密码
      */
     private String password;
 
     /**
-     *
-     * This field corresponds to the database column t_user.head_img
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 头像
      */
+    @Column(name = "head_img")
     private String headImg;
 
     /**
-     *
-     * This field corresponds to the database column t_user.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 当前记录是否有效@0:有效@1:无效
      */
+    @Column(name = "delete_flag")
     private Byte deleteFlag;
 
     /**
-     *
-     * This field corresponds to the database column t_user.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 创建时间
      */
+    @Column(name = "create_time")
     private Date createTime;
 
     /**
-     *
-     * This field corresponds to the database column t_user.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 记录最后更新时间
      */
+    @Column(name = "update_time")
     private Date updateTime;
 
     /**
-     *
-     * This field corresponds to the database column t_user.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * 最后一次修改者id
      */
+    @Column(name = "last_modified_by")
     private String lastModifiedBy;
 
-    /**
-     * This field corresponds to the database table t_user
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
-     */
     private static final long serialVersionUID = 1L;
 
     /**
-     * This method returns the value of the database column t_user.id
+     * 获取主键
      *
-     * @return the value of t_user.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return id - 主键
      */
     public String getId() {
         return id;
     }
 
     /**
-     * This method sets the value of the database column t_user.id
+     * 设置主键
      *
-     * @param id the value for t_user.id
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param id 主键
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user.username
+     * 获取姓名
      *
-     * @return the value of t_user.username
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return username - 姓名
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * This method sets the value of the database column t_user.username
+     * 设置姓名
      *
-     * @param username the value for t_user.username
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param username 姓名
      */
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user.nick_name
+     * 获取昵称
      *
-     * @return the value of t_user.nick_name
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return nick_name - 昵称
      */
     public String getNickName() {
         return nickName;
     }
 
     /**
-     * This method sets the value of the database column t_user.nick_name
+     * 设置昵称
      *
-     * @param nickName the value for t_user.nick_name
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param nickName 昵称
      */
     public void setNickName(String nickName) {
         this.nickName = nickName == null ? null : nickName.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user.phone
+     * 获取手机号
      *
-     * @return the value of t_user.phone
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return phone - 手机号
      */
     public String getPhone() {
         return phone;
     }
 
     /**
-     * This method sets the value of the database column t_user.phone
+     * 设置手机号
      *
-     * @param phone the value for t_user.phone
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param phone 手机号
      */
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user.email
+     * 获取邮箱
      *
-     * @return the value of t_user.email
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return email - 邮箱
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * This method sets the value of the database column t_user.email
+     * 设置邮箱
      *
-     * @param email the value for t_user.email
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param email 邮箱
      */
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user.password
+     * 获取密码
      *
-     * @return the value of t_user.password
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return password - 密码
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * This method sets the value of the database column t_user.password
+     * 设置密码
      *
-     * @param password the value for t_user.password
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param password 密码
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user.head_img
+     * 获取头像
      *
-     * @return the value of t_user.head_img
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return head_img - 头像
      */
     public String getHeadImg() {
         return headImg;
     }
 
     /**
-     * This method sets the value of the database column t_user.head_img
+     * 设置头像
      *
-     * @param headImg the value for t_user.head_img
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param headImg 头像
      */
     public void setHeadImg(String headImg) {
         this.headImg = headImg == null ? null : headImg.trim();
     }
 
     /**
-     * This method returns the value of the database column t_user.delete_flag
+     * 获取当前记录是否有效@0:有效@1:无效
      *
-     * @return the value of t_user.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return delete_flag - 当前记录是否有效@0:有效@1:无效
      */
     public Byte getDeleteFlag() {
         return deleteFlag;
     }
 
     /**
-     * This method sets the value of the database column t_user.delete_flag
+     * 设置当前记录是否有效@0:有效@1:无效
      *
-     * @param deleteFlag the value for t_user.delete_flag
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param deleteFlag 当前记录是否有效@0:有效@1:无效
      */
     public void setDeleteFlag(Byte deleteFlag) {
         this.deleteFlag = deleteFlag;
     }
 
     /**
-     * This method returns the value of the database column t_user.create_time
+     * 获取创建时间
      *
-     * @return the value of t_user.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return create_time - 创建时间
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     * This method sets the value of the database column t_user.create_time
+     * 设置创建时间
      *
-     * @param createTime the value for t_user.create_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param createTime 创建时间
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     * This method returns the value of the database column t_user.update_time
+     * 获取记录最后更新时间
      *
-     * @return the value of t_user.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return update_time - 记录最后更新时间
      */
     public Date getUpdateTime() {
         return updateTime;
     }
 
     /**
-     * This method sets the value of the database column t_user.update_time
+     * 设置记录最后更新时间
      *
-     * @param updateTime the value for t_user.update_time
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param updateTime 记录最后更新时间
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
     /**
-     * This method returns the value of the database column t_user.last_modified_by
+     * 获取最后一次修改者id
      *
-     * @return the value of t_user.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @return last_modified_by - 最后一次修改者id
      */
     public String getLastModifiedBy() {
         return lastModifiedBy;
     }
 
     /**
-     * This method sets the value of the database column t_user.last_modified_by
+     * 设置最后一次修改者id
      *
-     * @param lastModifiedBy the value for t_user.last_modified_by
-     *
-     * @mbggenerated-mdx Tue Jun 20 11:13:58 CST 2017
+     * @param lastModifiedBy 最后一次修改者id
      */
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.trim();
