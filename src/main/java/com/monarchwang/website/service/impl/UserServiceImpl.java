@@ -1,8 +1,10 @@
 package com.monarchwang.website.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.monarchwang.website.mapper.UserMapper;
-import com.monarchwang.website.model.User;
+import com.github.pagehelper.PageInfo;
+import com.monarchwang.website.common.RedisService;
+import com.monarchwang.website.dao.mapper.UserMapper;
+import com.monarchwang.website.dao.model.User;
 import com.monarchwang.website.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +18,20 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Resource
-	private UserMapper userMapper;
+    @Resource
+    private UserMapper userMapper;
+
+    @Resource
+    private RedisService<String, List<User>> redisService;
 
 
-	@Override
-	public List<User> list(Integer page) {
+    @Override
+    public PageInfo<User> list(Integer page) {
 
-		PageHelper.startPage(page,5);
+        PageHelper.startPage(page, 5);
 
-		return userMapper.selectAll();
-	}
+        PageInfo<User> pageInfo = new PageInfo<>(userMapper.selectAll());
+        return pageInfo;
+
+    }
 }

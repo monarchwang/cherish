@@ -22,16 +22,16 @@
                         connectionURL="jdbc:mysql://localhost:3306/cherish"
                         userId="root" password="123456" />
 
-        <javaModelGenerator targetPackage="com.monarchwang.website.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.monarchwang.website.dao.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.monarchwang.website.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="com.monarchwang.website.dao.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator targetPackage="com.monarchwang.website.mapper"
+        <javaClientGenerator targetPackage="com.monarchwang.website.dao.mapper"
                              targetProject="src/main/java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>

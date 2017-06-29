@@ -1,7 +1,7 @@
 package com.monarchwang.website.rest;
 
 import com.github.pagehelper.PageInfo;
-import com.monarchwang.website.model.User;
+import com.monarchwang.website.dao.model.User;
 import com.monarchwang.website.service.UserService;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +27,6 @@ public class UserResource {
 //	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public PageInfo<User> findAll(@PathParam("page") Integer page) {
-		return new PageInfo<>(userService.list(page));
+		return userService.list(page);
 	}
 }

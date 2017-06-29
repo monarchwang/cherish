@@ -1,8 +1,7 @@
 package com.monarchwang.website.service;
 
-import com.monarchwang.website.model.User;
-
-import java.util.List;
+import com.github.pagehelper.PageInfo;
+import com.monarchwang.website.dao.model.User;
 
 /**
  *
@@ -10,5 +9,5 @@ import java.util.List;
  */
 public interface UserService {
 
-	List<User> list(Integer page);
+	PageInfo<User> list(Integer page);
 }

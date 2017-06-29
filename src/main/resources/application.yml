@@ -19,11 +19,11 @@ spring:
       test-on-return: false
   data:
     mongodb:
-      host: 172.17.0.73
+      host: 127.0.0.1
       port: 27017
       database: cherish
   redis:
-    host: 172.17.0.73
+    host: 101.200.57.175
     port: 6379
     password: monarchwang
     timeout: 3000
@@ -37,9 +37,15 @@ pagehelper:
   support-methods-arguments: true
   params: count=countSql
 logging:
-  level: trace
+  level:
+    com.monarchwang: debug
+  file: cherish.log
+
 mapper:
     mappers:
         - com.monarchwang.website.utils.MyMapper
     not-empty: false
     identity: MYSQL
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j.Log4jImpl
