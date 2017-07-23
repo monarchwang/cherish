@@ -9,5 +9,4 @@ import com.monarchwang.website.dao.model.User;
  */
 public interface UserService {
 
-	PageInfo<User> list(Integer page);
 }

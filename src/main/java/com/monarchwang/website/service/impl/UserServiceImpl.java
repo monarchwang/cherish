@@ -24,14 +24,4 @@ public class UserServiceImpl implements UserService {
     @Resource
     private RedisService<String, List<User>> redisService;
 
-
-    @Override
-    public PageInfo<User> list(Integer page) {
-
-        PageHelper.startPage(page, 5);
-
-        PageInfo<User> pageInfo = new PageInfo<>(userMapper.selectAll());
-        return pageInfo;
-
-    }
 }
