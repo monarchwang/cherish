@@ -5,9 +5,11 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" property="id" jdbcType="CHAR" />
-    <result column="user_id" property="userId" jdbcType="CHAR" />
-    <result column="info_id" property="infoId" jdbcType="CHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="CHAR" />
     <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />

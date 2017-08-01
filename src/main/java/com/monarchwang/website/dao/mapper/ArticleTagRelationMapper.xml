@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.monarchwang.website.dao.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.monarchwang.website.dao.model.User" >
+<mapper namespace="com.monarchwang.website.dao.mapper.ArticleTagRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.monarchwang.website.dao.model.ArticleTagRelation" >
     <!--
       WARNING - @mbg.generated
     -->
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="username" property="username" jdbcType="CHAR" />
-    <result column="nick_name" property="nickName" jdbcType="CHAR" />
-    <result column="phone" property="phone" jdbcType="CHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="head_img" property="headImg" jdbcType="VARCHAR" />
+    <result column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="tag_id" property="tagId" jdbcType="INTEGER" />
     <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />

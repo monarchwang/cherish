@@ -1,17 +1,14 @@
 package com.monarchwang.website.common;
 
 import com.google.gson.Gson;
-import com.monarchwang.website.utils.Result;
+import com.monarchwang.website.utils.ResponseData;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Token拦截器
@@ -48,12 +45,12 @@ public class TokenHandler implements HandlerInterceptor {
 
         if (StringUtils.isEmpty(token) || redisService.get(token) == null) {
             //没有token  或者token失效
-            Result result = new Result();
-            result.setCode(1001);
-            result.setMsg("请先登录");
+            ResponseData responseData = new ResponseData();
+            responseData.setCode(1001);
+            responseData.setMsg("请先登录");
             response.setHeader("content-type", "application/json;charset=utf-8");
             //通过输出流的形式发给浏览器，然后浏览器转成json对象
-            response.getWriter().write(new Gson().toJson(result));
+            response.getWriter().write(new Gson().toJson(responseData));
             return false;
         }
         return true;

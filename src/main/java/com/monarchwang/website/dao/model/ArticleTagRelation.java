@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-public class User implements Serializable {
+@Table(name = "article_tag_relation")
+public class ArticleTagRelation implements Serializable {
     /**
      * 主键
      */
@@ -13,36 +14,16 @@ public class User implements Serializable {
     private Integer id;
 
     /**
-     * 姓名
+     * 用户id
      */
-    private String username;
+    @Column(name = "article_id")
+    private Integer articleId;
 
     /**
-     * 昵称
+     * 文章标题
      */
-    @Column(name = "nick_name")
-    private String nickName;
-
-    /**
-     * 手机号
-     */
-    private String phone;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 头像
-     */
-    @Column(name = "head_img")
-    private String headImg;
+    @Column(name = "tag_id")
+    private Integer tagId;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -89,111 +70,39 @@ public class User implements Serializable {
     }
 
     /**
-     * 获取姓名
+     * 获取用户id
      *
-     * @return username - 姓名
+     * @return article_id - 用户id
      */
-    public String getUsername() {
-        return username;
+    public Integer getArticleId() {
+        return articleId;
     }
 
     /**
-     * 设置姓名
+     * 设置用户id
      *
-     * @param username 姓名
+     * @param articleId 用户id
      */
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setArticleId(Integer articleId) {
+        this.articleId = articleId;
     }
 
     /**
-     * 获取昵称
+     * 获取文章标题
      *
-     * @return nick_name - 昵称
+     * @return tag_id - 文章标题
      */
-    public String getNickName() {
-        return nickName;
+    public Integer getTagId() {
+        return tagId;
     }
 
     /**
-     * 设置昵称
+     * 设置文章标题
      *
-     * @param nickName 昵称
+     * @param tagId 文章标题
      */
-    public void setNickName(String nickName) {
-        this.nickName = nickName == null ? null : nickName.trim();
-    }
-
-    /**
-     * 获取手机号
-     *
-     * @return phone - 手机号
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * 设置手机号
-     *
-     * @param phone 手机号
-     */
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
-    /**
-     * 获取邮箱
-     *
-     * @return email - 邮箱
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * 设置邮箱
-     *
-     * @param email 邮箱
-     */
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
-    }
-
-    /**
-     * 获取密码
-     *
-     * @return password - 密码
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * 设置密码
-     *
-     * @param password 密码
-     */
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
-
-    /**
-     * 获取头像
-     *
-     * @return head_img - 头像
-     */
-    public String getHeadImg() {
-        return headImg;
-    }
-
-    /**
-     * 设置头像
-     *
-     * @param headImg 头像
-     */
-    public void setHeadImg(String headImg) {
-        this.headImg = headImg == null ? null : headImg.trim();
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
     }
 
     /**

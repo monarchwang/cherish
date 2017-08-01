@@ -10,12 +10,17 @@ public class Tag implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
 
     /**
      * 标签名称
      */
     private String name;
+
+    /**
+     * 标签状态@0:禁用@1:启用
+     */
+    private Byte status;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -48,7 +53,7 @@ public class Tag implements Serializable {
      *
      * @return id - 主键
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -57,8 +62,8 @@ public class Tag implements Serializable {
      *
      * @param id 主键
      */
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
@@ -77,6 +82,24 @@ public class Tag implements Serializable {
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    /**
+     * 获取标签状态@0:禁用@1:启用
+     *
+     * @return status - 标签状态@0:禁用@1:启用
+     */
+    public Byte getStatus() {
+        return status;
+    }
+
+    /**
+     * 设置标签状态@0:禁用@1:启用
+     *
+     * @param status 标签状态@0:禁用@1:启用
+     */
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     /**

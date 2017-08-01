@@ -11,19 +11,19 @@ public class UserTagRelation implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
 
     /**
      * 标签id
      */
     @Column(name = "tag_id")
-    private String tagId;
+    private Integer tagId;
 
     /**
      * 用户id
      */
     @Column(name = "user_id")
-    private String userId;
+    private Integer userId;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -56,7 +56,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return id - 主键
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -65,8 +65,8 @@ public class UserTagRelation implements Serializable {
      *
      * @param id 主键
      */
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
@@ -74,7 +74,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return tag_id - 标签id
      */
-    public String getTagId() {
+    public Integer getTagId() {
         return tagId;
     }
 
@@ -83,8 +83,8 @@ public class UserTagRelation implements Serializable {
      *
      * @param tagId 标签id
      */
-    public void setTagId(String tagId) {
-        this.tagId = tagId == null ? null : tagId.trim();
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
     }
 
     /**
@@ -92,7 +92,7 @@ public class UserTagRelation implements Serializable {
      *
      * @return user_id - 用户id
      */
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -101,8 +101,8 @@ public class UserTagRelation implements Serializable {
      *
      * @param userId 用户id
      */
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**

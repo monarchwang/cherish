@@ -10,19 +10,29 @@ public class Article implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
 
     /**
      * 用户id
      */
     @Column(name = "user_id")
-    private String userId;
+    private Integer userId;
+
+    /**
+     * 文章标题
+     */
+    private String title;
+
+    /**
+     * 文章简介
+     */
+    private String brief;
 
     /**
      * 文章内容id，具体内容保存在mongo中
      */
-    @Column(name = "info_id")
-    private String infoId;
+    @Column(name = "content_id")
+    private String contentId;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -55,7 +65,7 @@ public class Article implements Serializable {
      *
      * @return id - 主键
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -64,8 +74,8 @@ public class Article implements Serializable {
      *
      * @param id 主键
      */
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**
@@ -73,7 +83,7 @@ public class Article implements Serializable {
      *
      * @return user_id - 用户id
      */
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -82,26 +92,62 @@ public class Article implements Serializable {
      *
      * @param userId 用户id
      */
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * 获取文章标题
+     *
+     * @return title - 文章标题
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * 设置文章标题
+     *
+     * @param title 文章标题
+     */
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    /**
+     * 获取文章简介
+     *
+     * @return brief - 文章简介
+     */
+    public String getBrief() {
+        return brief;
+    }
+
+    /**
+     * 设置文章简介
+     *
+     * @param brief 文章简介
+     */
+    public void setBrief(String brief) {
+        this.brief = brief == null ? null : brief.trim();
     }
 
     /**
      * 获取文章内容id，具体内容保存在mongo中
      *
-     * @return info_id - 文章内容id，具体内容保存在mongo中
+     * @return content_id - 文章内容id，具体内容保存在mongo中
      */
-    public String getInfoId() {
-        return infoId;
+    public String getContentId() {
+        return contentId;
     }
 
     /**
      * 设置文章内容id，具体内容保存在mongo中
      *
-     * @param infoId 文章内容id，具体内容保存在mongo中
+     * @param contentId 文章内容id，具体内容保存在mongo中
      */
-    public void setInfoId(String infoId) {
-        this.infoId = infoId == null ? null : infoId.trim();
+    public void setContentId(String contentId) {
+        this.contentId = contentId == null ? null : contentId.trim();
     }
 
     /**

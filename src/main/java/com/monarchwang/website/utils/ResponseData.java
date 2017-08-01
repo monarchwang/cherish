@@ -3,16 +3,23 @@ package com.monarchwang.website.utils;
 /**
  * http请求返回的最外层对象
  */
-public class Result<T> {
+public class ResponseData<T> {
 
-    /** 错误码. */
-    private Integer code;
+    /**
+     * 错误码.
+     */
+    private Integer code = 0;
 
-    /** 提示信息. */
-    private String msg;
+    /**
+     * 提示信息.
+     */
+    private String msg = "请求成功";
 
-    /** 具体的内容. */
+    /**
+     * 具体的内容.
+     */
     private T data;
+
 
     public Integer getCode() {
         return code;
