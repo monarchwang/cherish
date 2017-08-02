@@ -1,5 +1,6 @@
-package com.monarchwang.website.rest.dto.out;
+package com.monarchwang.website.rest.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.Date;
@@ -16,6 +17,7 @@ public class TagDto {
 
     private Byte status;
 
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     private int articleNum;

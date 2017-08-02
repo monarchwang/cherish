@@ -5,8 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.google.common.collect.Lists;
 import com.monarchwang.website.dao.mapper.TagMapper;
 import com.monarchwang.website.dao.model.Tag;
-import com.monarchwang.website.rest.dto.out.ListData;
-import com.monarchwang.website.rest.dto.out.TagDto;
+import com.monarchwang.website.utils.response.ListResult;
+import com.monarchwang.website.rest.dto.TagDto;
 import com.monarchwang.website.service.TagService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
@@ -35,8 +35,8 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public int updateTag(Tag tag) {
-        return tagMapper.updateByPrimaryKeySelective(tag);
+    public int updateTagStatus(int id,int status) {
+        return tagMapper.updateTagStatus(id,status);
     }
 
     @Override
@@ -45,9 +45,9 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public ListData<TagDto> queryTagByPage(int pageNum, int pageSize) {
+    public ListResult<TagDto> queryTagByPage(int pageNum, int pageSize) {
 
-        ListData<TagDto> listData = new ListData<>();
+        ListResult<TagDto> listResult = new ListResult<>();
 
         PageHelper.startPage(pageNum, pageSize);
         Page<TagDto> tagPage = (Page<TagDto>) tagMapper.selectTagsByPage();
@@ -61,11 +61,11 @@ public class TagServiceImpl implements TagService {
             });
         }
 
-        listData.setSum(tagDtos.size());
+        listResult.setTotal(tagPage.getTotal());
 
 
-        listData.setData(tagDtos);
+        listResult.setRows(tagDtos);
 
-        return listData;
+        return listResult;
     }
 }

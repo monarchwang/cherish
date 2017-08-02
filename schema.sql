@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag`(
   `id` INT(10) AUTO_INCREMENT NOT NULL COMMENT '主键',
   `name` CHAR(32) NOT NULL DEFAULT '' COMMENT '标签名称',
-  `status` TINYINT DEFAULT 0 COMMENT '标签状态@0:禁用@1:启用',
+  `status` TINYINT DEFAULT 1 COMMENT '标签状态@0:禁用@1:启用',
 
   `delete_flag` TINYINT DEFAULT 0 COMMENT '当前记录是否有效@0:有效@1:无效',
   `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',

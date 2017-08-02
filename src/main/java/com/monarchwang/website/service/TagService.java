@@ -1,22 +1,22 @@
 package com.monarchwang.website.service;
 
 import com.monarchwang.website.dao.model.Tag;
-import com.monarchwang.website.rest.dto.out.ListData;
-import com.monarchwang.website.rest.dto.out.TagDto;
+import com.monarchwang.website.utils.response.ListResult;
+import com.monarchwang.website.rest.dto.TagDto;
 
 /**
  * Created by liang on 2017/8/1.
  */
 public interface TagService {
 
-    int saveTag(Tag tag);
+	int saveTag(Tag tag);
 
-    Tag queryByName(String name);
+	Tag queryByName(String name);
 
-    int updateTag(Tag tag);
+	int updateTagStatus(int id, int status);
 
-    void deleteTagById(int id);
+	void deleteTagById(int id);
 
-    ListData<TagDto> queryTagByPage(int pageNum, int pageSize);
+	ListResult<TagDto> queryTagByPage(int pageNum, int pageSize);
 
 }
