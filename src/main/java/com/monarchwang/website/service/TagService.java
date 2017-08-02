@@ -17,6 +17,7 @@ public interface TagService {
 
 	void deleteTagById(int id);
 
-	ListResult<TagDto> queryTagByPage(int pageNum, int pageSize);
+	ListResult<TagDto> queryTagByPage(Integer pageNum, Integer pageSize,Integer status);
 
+    void update(Tag tag);
 }

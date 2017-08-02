@@ -24,54 +24,74 @@ import javax.annotation.Resource;
 @RequestMapping("/tag/")
 public class TagController {
 
-	@Resource
-	private TagService tagService;
+    @Resource
+    private TagService tagService;
 
-	@PostMapping("create")
-	public ResponseData<String> create(String tagName) {
-		ResponseData<String> responseData = new ResponseData<>();
+    @PostMapping("create")
+    public ResponseData<String> create(String tagName) {
+        ResponseData<String> responseData = new ResponseData<>();
 
-		if (StringUtils.isNotEmpty(tagName)) {
-			Tag tag = tagService.queryByName(tagName);
-			if (null != tag) {
-				responseData.setStatus(RespStatus.FAIL);
-				responseData.setMsg("标签名称已存在");
-			} else {
-				tag = new Tag();
-				tag.setName(tagName);
-				tag.setStatus((byte) 1);
-				tagService.saveTag(tag);
-			}
-		} else {
-			responseData.setStatus(RespStatus.FAIL);
-			responseData.setMsg("标签名称不能为空");
-		}
-		return responseData;
-	}
+        if (StringUtils.isNotEmpty(tagName)) {
+            Tag tag = tagService.queryByName(tagName);
+            if (null != tag) {
+                //判断标签是否被软删除
+                if (tag.getDeleteFlag() == 0) {
+                    responseData.setStatus(RespStatus.FAIL);
+                    responseData.setMsg("标签名称已存在");
+                } else {
+                    tag.setDeleteFlag((byte) 0);
+                    tagService.update(tag);
+                }
+            } else {
+                tag = new Tag();
+                tag.setName(tagName);
+                tag.setStatus((byte) 1);
+                tagService.saveTag(tag);
+            }
+        } else {
+            responseData.setStatus(RespStatus.FAIL);
+            responseData.setMsg("标签名称不能为空");
+        }
+        return responseData;
+    }
 
-	@GetMapping("query")
-	public ResponseData<ListResult<TagDto>> queryTag(Integer pageNum, Integer pageSize) {
+    @GetMapping("query")
+    public ResponseData<ListResult<TagDto>> queryTag(Integer pageNum, Integer pageSize, Integer status) {
 
-		ResponseData<ListResult<TagDto>> responseData = new ResponseData<>();
+        ResponseData<ListResult<TagDto>> responseData = new ResponseData<>();
 
-		responseData.setData(tagService.queryTagByPage(pageNum, pageSize));
+        responseData.setData(tagService.queryTagByPage(pageNum, pageSize, status));
 
-		return responseData;
-	}
+        return responseData;
+    }
 
 
-	@PostMapping("update")
-	public ResponseData<String> update(Integer id, Integer status) {
-		ResponseData<String> responseData = new ResponseData<>();
+    @PostMapping("update")
+    public ResponseData<String> update(Integer id, Integer status) {
+        ResponseData<String> responseData = new ResponseData<>();
 
-		if (id == null) {
-			responseData.setStatus(RespStatus.FAIL);
-			responseData.setMsg("id不能为空");
-		}else{
-			tagService.updateTagStatus(id, status);
-		}
+        if (id == null) {
+            responseData.setStatus(RespStatus.FAIL);
+            responseData.setMsg("id不能为空");
+        } else {
+            tagService.updateTagStatus(id, status);
+        }
 
-		return responseData;
-	}
+        return responseData;
+    }
+
+    @GetMapping("delete")
+    public ResponseData<String> delete(Integer id) {
+        ResponseData<String> responseData = new ResponseData<>();
+
+        if (id == null) {
+            responseData.setStatus(RespStatus.FAIL);
+            responseData.setMsg("id不能为空");
+        } else {
+            tagService.deleteTagById(id);
+        }
+
+        return responseData;
+    }
 
 }

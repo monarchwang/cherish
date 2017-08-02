@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan(basePackages = {"com.monarchwang.website"})
-@MapperScan("com.monarchwang.website.dao")
+@MapperScan("com.monarchwang.website.dao.mapper")
 public class Config {
 
 	private static final Logger LOG = LoggerFactory.getLogger(Config.class);

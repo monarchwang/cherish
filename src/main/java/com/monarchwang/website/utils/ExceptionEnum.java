@@ -4,26 +4,28 @@ package com.monarchwang.website.utils;
  * Created by wanggl on 2017/8/2.
  */
 public enum ExceptionEnum {
-	UNKONW_ERROR(-1, "未知错误"),
+    UNKONW_ERROR(-1, "未知错误"),
 
-	SUCCESS(0, "请求成功"),
+    SUCCESS(0, "请求成功"),
 
-	INVALID_TOKEN(1001, "token失效");
+    CANNOT_FIND_ARTICLE(1, "未查询到blog"),
 
-	ExceptionEnum(int status, String message) {
-		this.status = status;
-		this.message = message;
-	}
+    INVALID_TOKEN(1001, "token失效");
 
-	private int status;
+    ExceptionEnum(int status, String message) {
+        this.status = status;
+        this.message = message;
+    }
 
-	private String message;
+    private int status;
 
-	public int getStatus() {
-		return status;
-	}
+    private String message;
 
-	public String getMessage() {
-		return message;
-	}
+    public int getStatus() {
+        return status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

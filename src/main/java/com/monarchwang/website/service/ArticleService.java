@@ -9,9 +9,8 @@ import com.monarchwang.website.utils.Page;
  */
 public interface ArticleService {
 
-	int save(ArticleDto articleDto);
+	int saveOrUpdate(ArticleDto articleDto);
 
-	void update(ArticleDto articleDto);
 
 	Page<Article> findByPage(int pageNum, int pageSize);
 

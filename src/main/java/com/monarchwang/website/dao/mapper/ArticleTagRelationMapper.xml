@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.monarchwang.website.dao.mapper.ArticleTagRelationMapper" >
-  <resultMap id="BaseResultMap" type="com.monarchwang.website.dao.model.ArticleTagRelation" >
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="article_id" property="articleId" jdbcType="INTEGER" />
-    <result column="tag_id" property="tagId" jdbcType="INTEGER" />
-    <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-    <result column="last_modified_by" property="lastModifiedBy" jdbcType="CHAR" />
-  </resultMap>
+<mapper namespace="com.monarchwang.website.dao.mapper.ArticleTagRelationMapper">
+    <resultMap id="BaseResultMap" type="com.monarchwang.website.dao.model.ArticleTagRelation">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="article_id" property="articleId" jdbcType="INTEGER"/>
+        <result column="tag_id" property="tagId" jdbcType="INTEGER"/>
+        <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="last_modified_by" property="lastModifiedBy" jdbcType="CHAR"/>
+    </resultMap>
+    <delete id="deleteByArticleId">
+        DELETE FROM article_tag_relation
+        WHERE article_id = #{articleId}
+    </delete>
+    <select id="queryByTagId" resultType="com.monarchwang.website.dao.model.ArticleTagRelation">
+        SELECT *
+        FROM article_tag_relation
+        WHERE tag_id = #{tagId}
+    </select>
 </mapper>

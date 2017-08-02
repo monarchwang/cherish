@@ -35,6 +35,11 @@ public class Article implements Serializable {
     private String contentId;
 
     /**
+     * 文章状态@0:草稿，@1：发布
+     */
+    private Byte status;
+
+    /**
      * 当前记录是否有效@0:有效@1:无效
      */
     @Column(name = "delete_flag")
@@ -148,6 +153,24 @@ public class Article implements Serializable {
      */
     public void setContentId(String contentId) {
         this.contentId = contentId == null ? null : contentId.trim();
+    }
+
+    /**
+     * 获取文章状态@0:草稿，@1：发布
+     *
+     * @return status - 文章状态@0:草稿，@1：发布
+     */
+    public Byte getStatus() {
+        return status;
+    }
+
+    /**
+     * 设置文章状态@0:草稿，@1：发布
+     *
+     * @param status 文章状态@0:草稿，@1：发布
+     */
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     /**

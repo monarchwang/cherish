@@ -19,24 +19,32 @@
         SET status = #{status}
         WHERE id = #{id}
     </update>
+    <delete id="deleteTagById">
+        UPDATE tag
+        SET delete_flag = 1
+        WHERE id = #{id};
+    </delete>
 
 
     <select id="queryByName" resultMap="BaseResultMap">
         SELECT *
         FROM tag
-        WHERE delete_flag = 0 AND name = #{name}
+        WHERE name = #{name}
     </select>
 
-    <select id="selectTagsByPage" resultType="com.monarchwang.website.rest.dto.TagDto">
+    <select id="selectTagsByStatus" resultType="com.monarchwang.website.rest.dto.TagDto">
         SELECT
-            t.id,
-            t.name,
-            t.status,
-            t.create_time AS createTime,
-            sum(atr.id)   AS articleSum
+        t.id,
+        t.name,
+        t.status,
+        t.create_time AS createTime,
+        sum(atr.id) AS articleSum
         FROM tag t
-            LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id
+        LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id
         WHERE t.delete_flag = 0
+        <if test="status != null">
+            AND status = #{status}
+        </if>
         GROUP BY t.id
         ORDER BY t.create_time DESC
     </select>

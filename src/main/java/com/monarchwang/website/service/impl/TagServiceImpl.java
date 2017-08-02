@@ -3,6 +3,7 @@ package com.monarchwang.website.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.google.common.collect.Lists;
+import com.monarchwang.website.dao.mapper.ArticleTagRelationMapper;
 import com.monarchwang.website.dao.mapper.TagMapper;
 import com.monarchwang.website.dao.model.Tag;
 import com.monarchwang.website.utils.response.ListResult;
@@ -35,37 +36,48 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public int updateTagStatus(int id,int status) {
-        return tagMapper.updateTagStatus(id,status);
+    public int updateTagStatus(int id, int status) {
+        return tagMapper.updateTagStatus(id, status);
     }
 
     @Override
     public void deleteTagById(int id) {
-        tagMapper.deleteByPrimaryKey(id);
+
+        tagMapper.deleteTagById(id);
     }
 
     @Override
-    public ListResult<TagDto> queryTagByPage(int pageNum, int pageSize) {
+    public ListResult<TagDto> queryTagByPage(Integer pageNum, Integer pageSize, Integer status) {
 
         ListResult<TagDto> listResult = new ListResult<>();
-
-        PageHelper.startPage(pageNum, pageSize);
-        Page<TagDto> tagPage = (Page<TagDto>) tagMapper.selectTagsByPage();
-
-
         List<TagDto> tagDtos = Lists.newArrayList();
-        if (CollectionUtils.isNotEmpty(tagPage.getResult())) {
-            tagPage.getResult().stream().forEach(dto -> {
-                if (dto != null)
-                    tagDtos.add(dto);
-            });
-        }
 
-        listResult.setTotal(tagPage.getTotal());
+
+        if (pageNum != null && pageSize != null) {
+            //需要分页
+            PageHelper.startPage(pageNum, pageSize);
+            Page<TagDto> tagPage = (Page<TagDto>) tagMapper.selectTagsByStatus(status);
+            if (CollectionUtils.isNotEmpty(tagPage.getResult())) {
+                List<TagDto> finalTagDtos = tagDtos;
+                tagPage.getResult().stream().forEach(dto -> {
+                    if (dto != null)
+                        finalTagDtos.add(dto);
+                });
+            }
+            listResult.setTotal(tagPage.getTotal());
+        } else {
+            //不需要分页
+            tagDtos = tagMapper.selectTagsByStatus(status);
+        }
 
 
         listResult.setRows(tagDtos);
 
         return listResult;
+    }
+
+    @Override
+    public void update(Tag tag) {
+        tagMapper.updateByPrimaryKeySelective(tag);
     }
 }

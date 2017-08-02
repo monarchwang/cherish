@@ -24,6 +24,7 @@ public class ExceptionHandle {
 			responseData.setStatus(cherishException.getStatus());
 			responseData.setMsg(cherishException.getMessage());
 		} else {
+			e.printStackTrace();
 			responseData.setStatus(RespStatus.FAIL);
 			responseData.setMsg("系统发生异常: " + e.getMessage());
 		}

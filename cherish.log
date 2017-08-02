@@ -4376,3 +4376,21 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name
 2017-08-02 00:29:32.936 DEBUG 8424 --- [http-nio-9090-exec-9] c.m.w.d.m.TagMapper.selectTagsByPage     : ==>  Preparing: SELECT t.id, t.name, t.status, sum(atr.id) AS articleSum FROM tag t LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id AND t.delete_flag = 0 AND atr.delete_flag = 0 AND t.status != 0 ORDER BY t.create_time DESC, articleSum DESC LIMIT 10 
 2017-08-02 00:29:32.937 DEBUG 8424 --- [http-nio-9090-exec-9] c.m.w.d.m.TagMapper.selectTagsByPage     : ==> Parameters: 
 2017-08-02 00:29:32.937 DEBUG 8424 --- [http-nio-9090-exec-9] c.m.w.d.m.TagMapper.selectTagsByPage     : <==      Total: 1
+2017-08-02 00:32:09.998 DEBUG 8424 --- [http-nio-9090-exec-1] c.m.w.d.m.T.selectTagsByPage_COUNT       : ==>  Preparing: SELECT count(0) FROM (SELECT t.id, t.name, t.status, sum(atr.id) AS articleSum FROM tag t LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id AND t.delete_flag = 0 AND atr.delete_flag = 0 AND t.status != 0) table_count 
+2017-08-02 00:32:09.999 DEBUG 8424 --- [http-nio-9090-exec-1] c.m.w.d.m.T.selectTagsByPage_COUNT       : ==> Parameters: 
+2017-08-02 00:32:10.000 DEBUG 8424 --- [http-nio-9090-exec-1] c.m.w.d.m.T.selectTagsByPage_COUNT       : <==      Total: 1
+2017-08-02 00:32:10.000 DEBUG 8424 --- [http-nio-9090-exec-1] c.m.w.d.m.TagMapper.selectTagsByPage     : ==>  Preparing: SELECT t.id, t.name, t.status, sum(atr.id) AS articleSum FROM tag t LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id AND t.delete_flag = 0 AND atr.delete_flag = 0 AND t.status != 0 ORDER BY t.create_time DESC, articleSum DESC LIMIT 10 
+2017-08-02 00:32:10.001 DEBUG 8424 --- [http-nio-9090-exec-1] c.m.w.d.m.TagMapper.selectTagsByPage     : ==> Parameters: 
+2017-08-02 00:32:10.005 DEBUG 8424 --- [http-nio-9090-exec-1] c.m.w.d.m.TagMapper.selectTagsByPage     : <==      Total: 1
+2017-08-02 00:32:55.718 DEBUG 8424 --- [http-nio-9090-exec-3] c.m.w.d.m.T.selectTagsByPage_COUNT       : ==>  Preparing: SELECT count(0) FROM (SELECT t.id, t.name, t.status, sum(atr.id) AS articleSum FROM tag t LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id AND t.delete_flag = 0 AND atr.delete_flag = 0 AND t.status != 0) table_count 
+2017-08-02 00:32:55.718 DEBUG 8424 --- [http-nio-9090-exec-3] c.m.w.d.m.T.selectTagsByPage_COUNT       : ==> Parameters: 
+2017-08-02 00:32:55.719 DEBUG 8424 --- [http-nio-9090-exec-3] c.m.w.d.m.T.selectTagsByPage_COUNT       : <==      Total: 1
+2017-08-02 00:32:55.721 DEBUG 8424 --- [http-nio-9090-exec-3] c.m.w.d.m.TagMapper.selectTagsByPage     : ==>  Preparing: SELECT t.id, t.name, t.status, sum(atr.id) AS articleSum FROM tag t LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id AND t.delete_flag = 0 AND atr.delete_flag = 0 AND t.status != 0 ORDER BY t.create_time DESC, articleSum DESC LIMIT 10 
+2017-08-02 00:32:55.722 DEBUG 8424 --- [http-nio-9090-exec-3] c.m.w.d.m.TagMapper.selectTagsByPage     : ==> Parameters: 
+2017-08-02 00:32:55.723 DEBUG 8424 --- [http-nio-9090-exec-3] c.m.w.d.m.TagMapper.selectTagsByPage     : <==      Total: 1
+2017-08-02 00:33:06.105 DEBUG 8424 --- [http-nio-9090-exec-4] c.m.w.d.m.T.selectTagsByPage_COUNT       : ==>  Preparing: SELECT count(0) FROM (SELECT t.id, t.name, t.status, sum(atr.id) AS articleSum FROM tag t LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id AND t.delete_flag = 0 AND atr.delete_flag = 0 AND t.status != 0) table_count 
+2017-08-02 00:33:06.105 DEBUG 8424 --- [http-nio-9090-exec-4] c.m.w.d.m.T.selectTagsByPage_COUNT       : ==> Parameters: 
+2017-08-02 00:33:06.106 DEBUG 8424 --- [http-nio-9090-exec-4] c.m.w.d.m.T.selectTagsByPage_COUNT       : <==      Total: 1
+2017-08-02 00:33:06.106 DEBUG 8424 --- [http-nio-9090-exec-4] c.m.w.d.m.TagMapper.selectTagsByPage     : ==>  Preparing: SELECT t.id, t.name, t.status, sum(atr.id) AS articleSum FROM tag t LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id AND t.delete_flag = 0 AND atr.delete_flag = 0 AND t.status != 0 ORDER BY t.create_time DESC, articleSum DESC LIMIT 10 
+2017-08-02 00:33:06.107 DEBUG 8424 --- [http-nio-9090-exec-4] c.m.w.d.m.TagMapper.selectTagsByPage     : ==> Parameters: 
+2017-08-02 00:33:06.110 DEBUG 8424 --- [http-nio-9090-exec-4] c.m.w.d.m.TagMapper.selectTagsByPage     : <==      Total: 1

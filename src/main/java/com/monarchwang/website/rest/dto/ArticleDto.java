@@ -11,19 +11,24 @@ import java.util.List;
 @Data
 public class ArticleDto {
 
-	private int id;
+    private int id;
 
-	private String brief;
+    private String brief;
 
-	private int userId;
+    private int userId;
 
-	private String title;
+    private String title;
 
-	private List<String> tags;
+    private List<String> tags;
 
-	private String content;
+    private List<Integer> tagIds;
 
-	private Date createTime;
+    private String content;
 
-	private Date updateTime;
+    private Date createTime;
+
+    private Date updateTime;
+
+    //0:保存，1发布
+    private int type;
 }
