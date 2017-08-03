@@ -29,68 +29,87 @@ import java.util.List;
 @RequestMapping("/blog/")
 public class ArticleController {
 
-	@Autowired
-	private ArticleService articleService;
+    @Autowired
+    private ArticleService articleService;
 
-	@Autowired
-	private OSSClientUtil ossClientUtil;
-	@Autowired
-	private OssProperties ossProperties;
+    @Autowired
+    private OSSClientUtil ossClientUtil;
+    @Autowired
+    private OssProperties ossProperties;
 
-	private SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy/MM/dd/");
+    private SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy/MM/dd/");
 
-	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH_mm_ss_");
-
-
-	@GetMapping("query")
-	public ResponseData<ListResult<ArticleDto>> queryDataList(Integer pageNum, Integer pageSize) {
-		ResponseData<ListResult<ArticleDto>> responseData = new ResponseData<>();
+    private SimpleDateFormat timeFormat = new SimpleDateFormat("HH_mm_ss_");
 
 
-		return responseData;
-	}
+    @GetMapping("query")
+    public ResponseData<ListResult<ArticleDto>> queryDataList(Integer pageNum, Integer pageSize) {
+        ResponseData<ListResult<ArticleDto>> responseData = new ResponseData<>();
+
+        ListResult<ArticleDto> articleDtos = articleService.findByPage(pageNum, pageSize, null);
+        responseData.setData(articleDtos);
+
+        return responseData;
+    }
+
+    @GetMapping("detail")
+    public ResponseData<ArticleDto> queryArticleDetail(int articleId) {
+        ResponseData<ArticleDto> responseData = new ResponseData<>();
+
+        ArticleDto articleDto = articleService.findArticleById(articleId);
+        responseData.setData(articleDto);
+
+        return responseData;
+    }
 
 
-	/**
-	 * 新增或修改文章
-	 *
-	 * @param articleDto
-	 * @return
-	 */
-	@PostMapping(value = "saveOrUpdate", produces = {"application/json"})
-	public ResponseData<Integer> saveOrUpdate(ArticleDto articleDto) {
-		//返回文章id
-		ResponseData<Integer> responseData = new ResponseData<>();
-
-		int articleId = articleService.saveOrUpdate(articleDto);
-		responseData.setData(articleId);
-
-		return responseData;
-	}
+    @GetMapping("delete")
+    public ResponseData<String> deleteArticle(int articleId) {
+        articleService.deleteArticleById(articleId);
+        return new ResponseData<>();
+    }
 
 
-	/**
-	 * 上传图片
-	 *
-	 * @param request
-	 * @param response
-	 * @throws IOException
-	 */
-	@PostMapping("upload")
-	public void upload(MultipartHttpServletRequest request, HttpServletResponse response) throws IOException {
-		String fileurl = "error|服务器端错误";
-		List<MultipartFile> imgFileList = request.getFiles("file");
-		if (CollectionUtils.isNotEmpty(imgFileList)) {
-			for (MultipartFile multipartFile : imgFileList) {
-				String fileName = "myblog/" + dayFormat.format(new Date()) + timeFormat.format(new Date()) + multipartFile.getOriginalFilename();
-				String result = ossClientUtil.uploadFile2OSS(multipartFile.getInputStream(), fileName, multipartFile.getContentType());
-				if (StringUtils.isEmpty(result)) {
-					throw new CherishException(ExceptionEnum.UPLOAD_FILE_FAILED);
-				}
-				fileurl = ossProperties.getFileUrl() + "/" + fileName;
-				response.getWriter().write(fileurl);
-			}
-		}
-	}
+    /**
+     * 新增或修改文章
+     *
+     * @param articleDto
+     * @return
+     */
+    @PostMapping(value = "saveOrUpdate", produces = {"application/json"})
+    public ResponseData<Integer> saveOrUpdate(ArticleDto articleDto) {
+        //返回文章id
+        ResponseData<Integer> responseData = new ResponseData<>();
+
+        int articleId = articleService.saveOrUpdate(articleDto);
+        responseData.setData(articleId);
+
+        return responseData;
+    }
+
+
+    /**
+     * 上传图片
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+    @PostMapping("upload")
+    public void upload(MultipartHttpServletRequest request, HttpServletResponse response) throws IOException {
+        String fileurl = "error|服务器端错误";
+        List<MultipartFile> imgFileList = request.getFiles("file");
+        if (CollectionUtils.isNotEmpty(imgFileList)) {
+            for (MultipartFile multipartFile : imgFileList) {
+                String fileName = "myblog/" + dayFormat.format(new Date()) + timeFormat.format(new Date()) + multipartFile.getOriginalFilename();
+                String result = ossClientUtil.uploadFile2OSS(multipartFile.getInputStream(), fileName, multipartFile.getContentType());
+                if (StringUtils.isEmpty(result)) {
+                    throw new CherishException(ExceptionEnum.UPLOAD_FILE_FAILED);
+                }
+                fileurl = ossProperties.getFileUrl() + "/" + fileName;
+                response.getWriter().write(fileurl);
+            }
+        }
+    }
 
 }

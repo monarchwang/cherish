@@ -10,6 +10,7 @@ public enum ExceptionEnum {
 
     CANNOT_FIND_ARTICLE(1, "未查询到blog"),
     UPLOAD_FILE_FAILED(2, "上传文件失败"),
+    CANNOT_FIND_ARTCLE_DETAIL(3, "上传文件失败"),
 
     INVALID_TOKEN(1001, "token失效");
 

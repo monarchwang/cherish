@@ -13,7 +13,9 @@ public interface TagMapper extends MyMapper<Tag> {
 
     List<TagDto> selectTagsByStatus(@Param("status") Integer status);
 
-	int updateTagStatus(@Param("id") int id, @Param("status") int status);
+    int updateTagStatus(@Param("id") int id, @Param("status") int status);
 
     void deleteTagById(@Param("id") int id);
+
+    List<String> queryTagNameByArticleId(@Param("articleId") int articleId);
 }

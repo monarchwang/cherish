@@ -35,9 +35,21 @@ public class Article implements Serializable {
     private String contentId;
 
     /**
-     * 文章状态@0:草稿，@1：发布
+     * 文章状态，@0：草稿，@1：发布
      */
     private Byte status;
+
+    /**
+     * 文章浏览总数
+     */
+    @Column(name = "view_number")
+    private Integer viewNumber;
+
+    /**
+     * 文章评论数
+     */
+    @Column(name = "comments_number")
+    private Integer commentsNumber;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -156,21 +168,57 @@ public class Article implements Serializable {
     }
 
     /**
-     * 获取文章状态@0:草稿，@1：发布
+     * 获取文章状态，@0：草稿，@1：发布
      *
-     * @return status - 文章状态@0:草稿，@1：发布
+     * @return status - 文章状态，@0：草稿，@1：发布
      */
     public Byte getStatus() {
         return status;
     }
 
     /**
-     * 设置文章状态@0:草稿，@1：发布
+     * 设置文章状态，@0：草稿，@1：发布
      *
-     * @param status 文章状态@0:草稿，@1：发布
+     * @param status 文章状态，@0：草稿，@1：发布
      */
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    /**
+     * 获取文章浏览总数
+     *
+     * @return view_number - 文章浏览总数
+     */
+    public Integer getViewNumber() {
+        return viewNumber;
+    }
+
+    /**
+     * 设置文章浏览总数
+     *
+     * @param viewNumber 文章浏览总数
+     */
+    public void setViewNumber(Integer viewNumber) {
+        this.viewNumber = viewNumber;
+    }
+
+    /**
+     * 获取文章评论数
+     *
+     * @return comments_number - 文章评论数
+     */
+    public Integer getCommentsNumber() {
+        return commentsNumber;
+    }
+
+    /**
+     * 设置文章评论数
+     *
+     * @param commentsNumber 文章评论数
+     */
+    public void setCommentsNumber(Integer commentsNumber) {
+        this.commentsNumber = commentsNumber;
     }
 
     /**

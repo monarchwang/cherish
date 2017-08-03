@@ -48,4 +48,10 @@
         GROUP BY t.id
         ORDER BY t.create_time DESC
     </select>
+    <select id="queryTagNameByArticleId" resultType="java.lang.String">
+        SELECT t.name
+        FROM tag t, article_tag_relation atr
+        WHERE atr.tag_id = t.id
+              AND atr.article_id = #{articleId}
+    </select>
 </mapper>

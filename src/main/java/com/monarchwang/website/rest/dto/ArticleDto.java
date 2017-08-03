@@ -32,10 +32,10 @@ public class ArticleDto {
 	private Date updateTime;
 
 	//浏览数
-	private int viewNum;
+	private int viewNumber;
 
 	//评论数
-	private int commentNum;
+	private int commentNumber;
 
 	//0：草稿 ，1：已发布
 	private int status;
