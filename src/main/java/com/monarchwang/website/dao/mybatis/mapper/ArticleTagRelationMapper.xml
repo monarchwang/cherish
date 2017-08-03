@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.monarchwang.website.dao.mapper.ArticleTagRelationMapper">
-    <resultMap id="BaseResultMap" type="com.monarchwang.website.dao.model.ArticleTagRelation">
+<mapper namespace="com.monarchwang.website.dao.mybatis.mapper.ArticleTagRelationMapper">
+    <resultMap id="BaseResultMap" type="com.monarchwang.website.dao.mybatis.model.ArticleTagRelation">
         <!--
           WARNING - @mbg.generated
         -->
@@ -17,7 +17,7 @@
         DELETE FROM article_tag_relation
         WHERE article_id = #{articleId}
     </delete>
-    <select id="queryByTagId" resultType="com.monarchwang.website.dao.model.ArticleTagRelation">
+    <select id="queryByTagId" resultType="com.monarchwang.website.dao.mybatis.model.ArticleTagRelation">
         SELECT *
         FROM article_tag_relation
         WHERE tag_id = #{tagId}

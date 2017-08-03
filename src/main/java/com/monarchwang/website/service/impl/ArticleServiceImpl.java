@@ -1,10 +1,10 @@
 package com.monarchwang.website.service.impl;
 
 import com.monarchwang.website.common.CherishException;
-import com.monarchwang.website.dao.mapper.ArticleMapper;
-import com.monarchwang.website.dao.mapper.ArticleTagRelationMapper;
-import com.monarchwang.website.dao.model.Article;
-import com.monarchwang.website.dao.model.ArticleTagRelation;
+import com.monarchwang.website.dao.mybatis.mapper.ArticleMapper;
+import com.monarchwang.website.dao.mybatis.mapper.ArticleTagRelationMapper;
+import com.monarchwang.website.dao.mybatis.model.Article;
+import com.monarchwang.website.dao.mybatis.model.ArticleTagRelation;
 import com.monarchwang.website.dao.mongo.ArticleDetailMongoDao;
 import com.monarchwang.website.dao.mongo.model.ArticleDetail;
 import com.monarchwang.website.rest.dto.ArticleDto;
@@ -46,7 +46,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Transactional
     public int saveOrUpdate(ArticleDto articleDto) {
 
-        int sum = 0;
+        int articleId = 0;
 
         if (articleDto.getId() != -1 && articleDto.getId() != 0) {
             //更新文章
@@ -83,7 +83,7 @@ public class ArticleServiceImpl implements ArticleService {
 
             //更新mysql中文章数据
             articleMapper.updateByPrimaryKeySelective(article);
-            sum = article.getId();
+            articleId = article.getId();
 
         } else {
             //新增文章
@@ -112,21 +112,21 @@ public class ArticleServiceImpl implements ArticleService {
             article.setUpdateTime(new Date());
             articleMapper.insertUseGeneratedKeys(article);
 
-            sum = article.getId();
+            articleId = article.getId();
 
             //新增标签与文章的关联关系
             List<Integer> tagIds = articleDto.getTagIds();
             if (CollectionUtils.isNotEmpty(tagIds)) {
                 tagIds.stream().forEach(tagId -> {
                     ArticleTagRelation relation = new ArticleTagRelation();
-                    relation.setArticleId(articleDto.getId());
-                    relation.setTagId(article.getId());
+                    relation.setArticleId(article.getId());
+                    relation.setTagId(tagId);
                     articleTagRelationMapper.insertSelective(relation);
                 });
             }
 
         }
-        return sum;
+        return articleId;
     }
 
 

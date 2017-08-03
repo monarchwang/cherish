@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +23,14 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan(basePackages = {"com.monarchwang.website"})
-@MapperScan("com.monarchwang.website.dao.mapper")
+@MapperScan("com.monarchwang.website.dao.mybatis.mapper")
 public class Config {
 
 	private static final Logger LOG = LoggerFactory.getLogger(Config.class);
 
 
 	@Bean
-	public HttpMessageConverters fastJsonHttpMessageConverters(){
+	public HttpMessageConverters fastJsonHttpMessageConverters() {
 		//1.需要定义一个convert转换消息的对象;
 		FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
 		//2:添加fastJson的配置信息;
@@ -42,7 +43,7 @@ public class Config {
 		fastJsonHttpMessageConverter.setSupportedMediaTypes(fastMediaTypes);
 		fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
 		HttpMessageConverter<?> converter = fastJsonHttpMessageConverter;
-		return new HttpMessageConverters(converter);
+		return new HttpMessageConverters(new StringHttpMessageConverter(), converter);
 
 	}
 }

@@ -1,4 +1,4 @@
-package com.monarchwang.website.dao.model;
+package com.monarchwang.website.dao.mybatis.model;
 
 import java.io.Serializable;
 import java.util.Date;

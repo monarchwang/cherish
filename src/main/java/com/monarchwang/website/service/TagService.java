@@ -1,6 +1,6 @@
 package com.monarchwang.website.service;
 
-import com.monarchwang.website.dao.model.Tag;
+import com.monarchwang.website.dao.mybatis.model.Tag;
 import com.monarchwang.website.utils.response.ListResult;
 import com.monarchwang.website.rest.dto.TagDto;
 

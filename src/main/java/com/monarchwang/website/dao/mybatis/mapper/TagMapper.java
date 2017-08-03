@@ -1,6 +1,6 @@
-package com.monarchwang.website.dao.mapper;
+package com.monarchwang.website.dao.mybatis.mapper;
 
-import com.monarchwang.website.dao.model.Tag;
+import com.monarchwang.website.dao.mybatis.model.Tag;
 import com.monarchwang.website.rest.dto.TagDto;
 import com.monarchwang.website.utils.MyMapper;
 import org.apache.ibatis.annotations.Param;

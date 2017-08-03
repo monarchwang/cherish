@@ -56,6 +56,8 @@ CREATE TABLE `article`(
   `brief` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '文章简介',
   `content_id` CHAR(36) NOT NULL DEFAULT '' COMMENT '文章内容id，具体内容保存在mongo中',
   `status` TINYINT NOT NULL DEFAULT 0 COMMENT '文章状态，@0：草稿，@1：发布',
+  `view_number` INT(10) NOT NULL DEFAULT 0 COMMENT '文章浏览总数',
+  `comments_number` INT(10)NOT NULL DEFAULT 0 COMMENT '文章评论数',
 
   `delete_flag` TINYINT DEFAULT 0 COMMENT '当前记录是否有效@0:有效@1:无效',
   `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -71,7 +73,7 @@ CREATE TABLE `article`(
 DROP TABLE IF EXISTS `article_tag_relation`;
 CREATE TABLE `article_tag_relation`(
   `id` INT(10) AUTO_INCREMENT NOT NULL COMMENT '主键',
-  `article_id` INT(10) NOT NULL DEFAULT 0 COMMENT '用户id',
+  `article_id` INT(10) NOT NULL DEFAULT 0 COMMENT '文章id',
   `tag_id` INT(10) NOT NULL DEFAULT 0 COMMENT '文章标题',
 
   `delete_flag` TINYINT DEFAULT 0 COMMENT '当前记录是否有效@0:有效@1:无效',

@@ -1,6 +1,6 @@
 package com.monarchwang.website.service.impl;
 
-import com.monarchwang.website.dao.mapper.UserMapper;
+import com.monarchwang.website.dao.mybatis.mapper.UserMapper;
 import com.monarchwang.website.service.UserService;
 import org.springframework.stereotype.Service;
 

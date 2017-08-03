@@ -1,10 +1,11 @@
-package com.monarchwang.website.dao.model;
+package com.monarchwang.website.dao.mybatis.model;
 
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-public class Article implements Serializable {
+@Table(name = "user_tag_relation")
+public class UserTagRelation implements Serializable {
     /**
      * 主键
      */
@@ -13,31 +14,16 @@ public class Article implements Serializable {
     private Integer id;
 
     /**
+     * 标签id
+     */
+    @Column(name = "tag_id")
+    private Integer tagId;
+
+    /**
      * 用户id
      */
     @Column(name = "user_id")
     private Integer userId;
-
-    /**
-     * 文章标题
-     */
-    private String title;
-
-    /**
-     * 文章简介
-     */
-    private String brief;
-
-    /**
-     * 文章内容id，具体内容保存在mongo中
-     */
-    @Column(name = "content_id")
-    private String contentId;
-
-    /**
-     * 文章状态@0:草稿，@1：发布
-     */
-    private Byte status;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -84,6 +70,24 @@ public class Article implements Serializable {
     }
 
     /**
+     * 获取标签id
+     *
+     * @return tag_id - 标签id
+     */
+    public Integer getTagId() {
+        return tagId;
+    }
+
+    /**
+     * 设置标签id
+     *
+     * @param tagId 标签id
+     */
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
+    }
+
+    /**
      * 获取用户id
      *
      * @return user_id - 用户id
@@ -99,78 +103,6 @@ public class Article implements Serializable {
      */
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    /**
-     * 获取文章标题
-     *
-     * @return title - 文章标题
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * 设置文章标题
-     *
-     * @param title 文章标题
-     */
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    /**
-     * 获取文章简介
-     *
-     * @return brief - 文章简介
-     */
-    public String getBrief() {
-        return brief;
-    }
-
-    /**
-     * 设置文章简介
-     *
-     * @param brief 文章简介
-     */
-    public void setBrief(String brief) {
-        this.brief = brief == null ? null : brief.trim();
-    }
-
-    /**
-     * 获取文章内容id，具体内容保存在mongo中
-     *
-     * @return content_id - 文章内容id，具体内容保存在mongo中
-     */
-    public String getContentId() {
-        return contentId;
-    }
-
-    /**
-     * 设置文章内容id，具体内容保存在mongo中
-     *
-     * @param contentId 文章内容id，具体内容保存在mongo中
-     */
-    public void setContentId(String contentId) {
-        this.contentId = contentId == null ? null : contentId.trim();
-    }
-
-    /**
-     * 获取文章状态@0:草稿，@1：发布
-     *
-     * @return status - 文章状态@0:草稿，@1：发布
-     */
-    public Byte getStatus() {
-        return status;
-    }
-
-    /**
-     * 设置文章状态@0:草稿，@1：发布
-     *
-     * @param status 文章状态@0:草稿，@1：发布
-     */
-    public void setStatus(Byte status) {
-        this.status = status;
     }
 
     /**

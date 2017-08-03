@@ -59,3 +59,12 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 debug: true
+
+#阿里云相关配置
+aliyun:
+  oss:
+    Endpoint: http://oss-cn-shanghai.aliyuncs.com
+    AccessId: dw9QIIPJuME6aiiP
+    AccessKey: d3MMrpL6hytpUKCaeBZef71SrvCHf7
+    Bucket: monarchwang
+    FileUrl: http://monarchwang.oss-cn-shanghai.aliyuncs.com

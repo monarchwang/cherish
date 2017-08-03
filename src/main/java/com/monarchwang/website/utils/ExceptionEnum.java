@@ -9,6 +9,7 @@ public enum ExceptionEnum {
     SUCCESS(0, "请求成功"),
 
     CANNOT_FIND_ARTICLE(1, "未查询到blog"),
+    UPLOAD_FILE_FAILED(2, "上传文件失败"),
 
     INVALID_TOKEN(1001, "token失效");
 

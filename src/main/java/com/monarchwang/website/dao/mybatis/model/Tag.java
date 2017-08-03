@@ -1,11 +1,10 @@
-package com.monarchwang.website.dao.model;
+package com.monarchwang.website.dao.mybatis.model;
 
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "article_tag_relation")
-public class ArticleTagRelation implements Serializable {
+public class Tag implements Serializable {
     /**
      * 主键
      */
@@ -14,16 +13,14 @@ public class ArticleTagRelation implements Serializable {
     private Integer id;
 
     /**
-     * 用户id
+     * 标签名称
      */
-    @Column(name = "article_id")
-    private Integer articleId;
+    private String name;
 
     /**
-     * 文章标题
+     * 标签状态@0:禁用@1:启用
      */
-    @Column(name = "tag_id")
-    private Integer tagId;
+    private Byte status;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -70,39 +67,39 @@ public class ArticleTagRelation implements Serializable {
     }
 
     /**
-     * 获取用户id
+     * 获取标签名称
      *
-     * @return article_id - 用户id
+     * @return name - 标签名称
      */
-    public Integer getArticleId() {
-        return articleId;
+    public String getName() {
+        return name;
     }
 
     /**
-     * 设置用户id
+     * 设置标签名称
      *
-     * @param articleId 用户id
+     * @param name 标签名称
      */
-    public void setArticleId(Integer articleId) {
-        this.articleId = articleId;
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     /**
-     * 获取文章标题
+     * 获取标签状态@0:禁用@1:启用
      *
-     * @return tag_id - 文章标题
+     * @return status - 标签状态@0:禁用@1:启用
      */
-    public Integer getTagId() {
-        return tagId;
+    public Byte getStatus() {
+        return status;
     }
 
     /**
-     * 设置文章标题
+     * 设置标签状态@0:禁用@1:启用
      *
-     * @param tagId 文章标题
+     * @param status 标签状态@0:禁用@1:启用
      */
-    public void setTagId(Integer tagId) {
-        this.tagId = tagId;
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     /**

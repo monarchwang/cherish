@@ -1,11 +1,11 @@
-package com.monarchwang.website.dao.model;
+package com.monarchwang.website.dao.mybatis.model;
 
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "user_tag_relation")
-public class UserTagRelation implements Serializable {
+@Table(name = "article_tag_relation")
+public class ArticleTagRelation implements Serializable {
     /**
      * 主键
      */
@@ -14,16 +14,16 @@ public class UserTagRelation implements Serializable {
     private Integer id;
 
     /**
-     * 标签id
+     * 用户id
+     */
+    @Column(name = "article_id")
+    private Integer articleId;
+
+    /**
+     * 文章标题
      */
     @Column(name = "tag_id")
     private Integer tagId;
-
-    /**
-     * 用户id
-     */
-    @Column(name = "user_id")
-    private Integer userId;
 
     /**
      * 当前记录是否有效@0:有效@1:无效
@@ -70,39 +70,39 @@ public class UserTagRelation implements Serializable {
     }
 
     /**
-     * 获取标签id
+     * 获取用户id
      *
-     * @return tag_id - 标签id
+     * @return article_id - 用户id
+     */
+    public Integer getArticleId() {
+        return articleId;
+    }
+
+    /**
+     * 设置用户id
+     *
+     * @param articleId 用户id
+     */
+    public void setArticleId(Integer articleId) {
+        this.articleId = articleId;
+    }
+
+    /**
+     * 获取文章标题
+     *
+     * @return tag_id - 文章标题
      */
     public Integer getTagId() {
         return tagId;
     }
 
     /**
-     * 设置标签id
+     * 设置文章标题
      *
-     * @param tagId 标签id
+     * @param tagId 文章标题
      */
     public void setTagId(Integer tagId) {
         this.tagId = tagId;
-    }
-
-    /**
-     * 获取用户id
-     *
-     * @return user_id - 用户id
-     */
-    public Integer getUserId() {
-        return userId;
-    }
-
-    /**
-     * 设置用户id
-     *
-     * @param userId 用户id
-     */
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 
     /**
