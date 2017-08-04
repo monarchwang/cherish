@@ -52,6 +52,17 @@ public class ArticleController {
         return responseData;
     }
 
+
+    @GetMapping("release")
+    public ResponseData<String> release(int articleId){
+    	ResponseData<String> responseData = new ResponseData<>();
+
+    	articleService.release(articleId);
+
+    	return responseData;
+    }
+
+
     @GetMapping("detail")
     public ResponseData<ArticleDto> queryArticleDetail(int articleId) {
         ResponseData<ArticleDto> responseData = new ResponseData<>();

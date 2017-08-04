@@ -28,6 +28,11 @@
         SET delete_flag = 1
         WHERE id = #{id}
     </update>
+    <update id="release">
+        UPDATE article
+        SET status = 1
+        WHERE id = #{id}
+    </update>
     <select id="findByPage" resultMap="BaseResultMap">
         SELECT * FROM article WHERE
         1 = 1 AND delete_flag = 0

@@ -206,4 +206,9 @@ public class ArticleServiceImpl implements ArticleService {
     public void deleteArticleById(int id) {
         articleMapper.softDelete(id);
     }
+
+    @Override
+    public void release(int articleId) {
+        articleMapper.release(articleId);
+    }
 }

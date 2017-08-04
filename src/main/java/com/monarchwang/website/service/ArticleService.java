@@ -20,4 +20,6 @@ public interface ArticleService {
 	ArticleDto findArticleById(int id);
 
 	void deleteArticleById(int id);
+
+	void release(int articleId);
 }

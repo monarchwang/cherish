@@ -12,4 +12,6 @@ public interface ArticleMapper extends MyMapper<Article> {
     void increaseViewNumber(@Param("id") Integer id);
 
     void softDelete(@Param("id") int id);
+
+	void release(@Param("id") int id);
 }
