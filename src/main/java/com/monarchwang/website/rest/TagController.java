@@ -7,10 +7,7 @@ import com.monarchwang.website.utils.response.ListResult;
 import com.monarchwang.website.utils.response.RespStatus;
 import com.monarchwang.website.utils.response.ResponseData;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -20,6 +17,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/tag/")
+@CrossOrigin
 public class TagController {
 
     @Resource

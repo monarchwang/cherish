@@ -11,6 +11,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/paper")
+@CrossOrigin
 public class UserController {
 
     @Resource
