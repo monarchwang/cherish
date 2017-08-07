@@ -145,11 +145,12 @@ public class ArticleServiceImpl implements ArticleService {
 
         ListResult<ArticleDto> result = new ListResult<>();
         if (pageNum != null && pageSize != null) {
-            PageHelper.startPage(pageSize, pageNum);
+            PageHelper.startPage(pageNum, pageSize);
             Page<Article> articlePage = (Page<Article>) articleMapper.findByPage(status);
 
             if (CollectionUtils.isNotEmpty(articlePage.getResult())) {
                 result.setTotal(articlePage.getTotal());
+                result.setPages(articlePage.getPages());
                 List<ArticleDto> rows = Lists.newArrayList();
                 articlePage.getResult().stream().forEach(article -> {
                     ArticleDto dto = new ArticleDto();

@@ -64,6 +64,7 @@ public class TagServiceImpl implements TagService {
                 });
             }
             listResult.setTotal(tagPage.getTotal());
+            listResult.setPages(tagPage.getPages());
         } else {
             //不需要分页
             tagDtos = tagMapper.selectTagsByStatus(status);
