@@ -1,7 +1,7 @@
 package com.monarchwang.website.dao.mybatis.mapper;
 
 import com.monarchwang.website.dao.mybatis.model.Article;
-import com.monarchwang.website.utils.MyMapper;
+import com.monarchwang.website.utils.system.MyMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

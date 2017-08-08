@@ -1,8 +1,7 @@
 package com.monarchwang.website.dao.mongo;
 
-import com.monarchwang.website.utils.Page;
+import com.monarchwang.website.utils.system.Page;
 import org.springframework.data.mongodb.core.query.Query;
-import com.mongodb.WriteResult;
 import org.springframework.data.mongodb.core.query.Update;
 
 import java.util.List;

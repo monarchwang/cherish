@@ -1,4 +1,4 @@
-package com.monarchwang.website.utils;
+package com.monarchwang.website.utils.system;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

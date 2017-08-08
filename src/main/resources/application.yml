@@ -55,7 +55,7 @@ logging:
 
 mapper:
     mappers:
-        - com.monarchwang.website.utils.MyMapper
+        - com.monarchwang.website.utils.system.MyMapper
     not-empty: false
     identity: MYSQL
 mybatis:

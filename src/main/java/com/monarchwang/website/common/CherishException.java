@@ -1,6 +1,6 @@
 package com.monarchwang.website.common;
 
-import com.monarchwang.website.utils.ExceptionEnum;
+import com.monarchwang.website.utils.system.ExceptionEnum;
 
 /**
  * 异常封装

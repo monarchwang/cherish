@@ -1,4 +1,4 @@
-package com.monarchwang.website.utils;
+package com.monarchwang.website.utils.system;
 
 /**
  * Created by wanggl on 2017/8/2.

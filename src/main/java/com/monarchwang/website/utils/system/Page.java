@@ -1,4 +1,4 @@
-package com.monarchwang.website.utils;
+package com.monarchwang.website.utils.system;
 
 import lombok.Data;
 
