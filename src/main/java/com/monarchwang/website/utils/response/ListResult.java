@@ -12,6 +12,8 @@ public class ListResult<T> {
 
     private long total;
 
+    private long pages;
+
     private List<T> rows;
 
 }
