@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by wanggl on 2017/8/7.
+ * Created by wanggl on 2017/8/9.
  */
 public class PictureUtils {
 
@@ -70,7 +70,7 @@ public class PictureUtils {
 
 	static {
 		words.add(new Word("本人", 0));
-		words.add(new Word("斗战胜佛", 1));
+		words.add(new Word("曹孟德", 1));
 		words.add(new Word("，前", 0));
 		words.add(new Word("叁", 1));
 		words.add(new Word("个月每月需", 0));
@@ -85,7 +85,7 @@ public class PictureUtils {
 		words.add(new Word("拾贰", 1));
 		words.add(new Word("期", 0));
 
-		otherInfo.add(new Word("斗战胜佛 身份证号 320321199411054044", 0));
+		otherInfo.add(new Word("曹孟德 身份证号 320321199411054044", 0));
 		otherInfo.add(new Word("", -1));
 		otherInfo.add(new Word("经办人：施一诺 2017年05月09日", 0));
 		otherInfo.add(new Word("", -1));
@@ -121,7 +121,7 @@ public class PictureUtils {
 
 		//设置电子借条id
 		g.setFont(new Font(FONT_NAME, FONT_STYLE, 90));
-		g.drawString("2 2 4 6", 200, 100);
+		g.drawString("2 2 4 6", 175, 100);
 
 		g.setFont(new Font(FONT_NAME, FONT_STYLE, FONT_SIZE));
 
@@ -180,10 +180,10 @@ public class PictureUtils {
 
 		//获取bufferedImage的输入流
 
-//		ByteArrayOutputStream bs = new ByteArrayOutputStream();
-//		ImageOutputStream imageOutputStream = ImageIO.createImageOutputStream(bs);
-//		ImageIO.write(bufferedImage, "jpg", imageOutputStream);
-//		InputStream inputStream = new ByteArrayInputStream(bs.toByteArray());
+		ByteArrayOutputStream bs = new ByteArrayOutputStream();
+		ImageOutputStream imageOutputStream = ImageIO.createImageOutputStream(bs);
+		ImageIO.write(bufferedImage, "jpg", imageOutputStream);
+		InputStream inputStream = new ByteArrayInputStream(bs.toByteArray());
 
 
 		OutputStream os = new FileOutputStream("result.jpg");
