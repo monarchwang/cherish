@@ -1,0 +1,43 @@
+profiles: prod
+
+# 数据源配置
+spring:
+  datasource:
+      name: dataSource
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://139.224.135.82:3306/cherish?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: wglWGL123
+      initial-size: 1
+      min-idle: 1
+      max-wait: 6000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select *
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      remove_abandoned: true #超过removeAbandonedTimeout时间后，是否进 行没用连接（废弃）的回收（默认为false，调整为true)
+      remove_abandoned_timeout: 180 #超过时间限制，回收没有用(废弃)的连接（默认为 300秒，调整为180）
+      time-between-eviction-runs-millis: 18800
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      connection-properties: config.decrypt=true;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      filters: stat,wall,slf4j
+
+
+  data:
+    mongodb:
+      host: 139.224.135.82
+      port: 27017
+      database: cherish
+      username: liang
+      password: wglWGL123
+#      authentication-database: admin
+  redis:
+    host: 139.224.135.82
+    port: 6379
+    password: monarchwang
+    timeout: 3000
+  jpa:
+    show-sql: true
