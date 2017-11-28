@@ -33,7 +33,7 @@ spring:
       database: cherish
       username: liang
       password: wglWGL123
-#      authentication-database: admin
+      authentication-database: admin
   redis:
     host: 139.224.135.82
     port: 6379
