@@ -1,5 +1,6 @@
 package com.monarchwang.website.common;
 
+import com.alibaba.fastjson.JSON;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class HttpAspect {
 
         //打印url、method、ip、类方法、参数
         logger.info("HttpAspect ---- url: {}, method: {}, ip: {}, class_method: {}, args: {}", request.getRequestURL(), request.getMethod(), request.getRemoteAddr(), joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName(),
-                joinPoint.getArgs());
+                JSON.toJSONString(joinPoint.getArgs()));
 
     }
 
