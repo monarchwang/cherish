@@ -17,6 +17,7 @@ import com.monarchwang.website.utils.system.ExceptionEnum;
 import com.monarchwang.website.utils.response.ListResult;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -151,16 +152,9 @@ public class ArticleServiceImpl implements ArticleService {
                 result.setTotal(articlePage.getTotal());
                 result.setPages(articlePage.getPages());
                 List<ArticleDto> rows = Lists.newArrayList();
-                articlePage.getResult().stream().forEach(article -> {
+                articlePage.getResult().forEach(article -> {
                     ArticleDto dto = new ArticleDto();
-                    dto.setBrief(article.getBrief());
-                    dto.setId(article.getId());
-                    dto.setCommentNumber(article.getCommentsNumber());
-                    dto.setViewNumber(article.getViewNumber());
-                    dto.setTitle(article.getTitle());
-                    dto.setStatus(article.getStatus());
-                    dto.setCreateTime(article.getCreateTime());
-                    dto.setUpdateTime(article.getUpdateTime());
+                    BeanUtils.copyProperties(article, dto);
                     dto.setTags(tagMapper.queryTagNameByArticleId(article.getId()));
                     rows.add(dto);
                 });
@@ -178,14 +172,7 @@ public class ArticleServiceImpl implements ArticleService {
             throw new CherishException(ExceptionEnum.CANNOT_FIND_ARTICLE);
         }
         ArticleDto dto = new ArticleDto();
-        dto.setBrief(article.getBrief());
-        dto.setId(article.getId());
-        dto.setCommentNumber(article.getCommentsNumber());
-        dto.setViewNumber(article.getViewNumber());
-        dto.setTitle(article.getTitle());
-        dto.setStatus(article.getStatus());
-        dto.setCreateTime(article.getCreateTime());
-        dto.setUpdateTime(article.getUpdateTime());
+        BeanUtils.copyProperties(article, dto);
 
         ArticleDetail articleDetail = articleDetailMongoDao.findById(article.getContentId());
         if (null == articleDetail) {
@@ -194,7 +181,6 @@ public class ArticleServiceImpl implements ArticleService {
 
         dto.setContent(articleDetail.getContent());
         dto.setTags(articleDetail.getTags());
-
 
         //更新浏览次数
         articleMapper.increaseViewNumber(article.getId());

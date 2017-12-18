@@ -32,13 +32,19 @@ spring:
       host: localhost
       port: 27017
       database: cherish
-#      username: monarchwang
-#      password: wglWGL123
-#      authentication-database: admin
     redis:
-      host: 139.224.135.82
+      host: localhost
       port: 6379
-      password: monarchwang
+      password: liang
       timeout: 3000
   jpa:
     show-sql: true
+
+#阿里云oss相关配置
+aliyun:
+  oss:
+    Endpoint:
+    AccessId:
+    AccessKey:
+    Bucket:
+    FileUrl:
