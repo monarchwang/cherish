@@ -17,42 +17,32 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class HttpAspect {
 
-	private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
+    private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
 
-	@Pointcut("execution(public * com.monarchwang.website.rest.*Controller.*(..))")
-	public void log() {
-	}
+    @Pointcut("execution(public * com.monarchwang.website.rest.*Controller.*(..))")
+    public void log() {
+    }
 
-	@Before("log()")
-	public void doBefore(JoinPoint joinPoint) {
-		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-		HttpServletRequest request = attributes.getRequest();
+    @Before("log()")
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
 
-		//url
-		logger.info("url={}", request.getRequestURL());
+        //打印url、method、ip、类方法、参数
+        logger.info("HttpAspect ---- url: {}, method: {}, ip: {}, class_method: {}, args: {}", request.getRequestURL(), request.getMethod(), request.getRemoteAddr(), joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName(),
+                joinPoint.getArgs());
 
-		//method
-		logger.info("method={}", request.getMethod());
+    }
 
-		//ip
-		logger.info("ip={}", request.getRemoteAddr());
+    @After("log()")
+    public void doAfter() {
 
-		//类方法
-		logger.info("class_method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+    }
 
-		//参数
-		logger.info("args={}", joinPoint.getArgs());
-	}
-
-	@After("log()")
-	public void doAfter() {
-
-	}
-
-	@AfterReturning(returning = "object", pointcut = "log()")
-	public void doAfterReturning(Object object) {
-		logger.info("response={}", object != null ? object.toString() : "");
-	}
+    @AfterReturning(returning = "object", pointcut = "log()")
+    public void doAfterReturning(Object object) {
+        logger.debug("response={}", object != null ? object.toString() : "");
+    }
 
 }
