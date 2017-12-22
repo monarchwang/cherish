@@ -10,7 +10,7 @@
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.monarchwang.website.utils.MyMapper"/>
+            <property name="mappers" value="com.monarchwang.website.utils.system.MyMapper"/>
         </plugin>
 
         <commentGenerator>

@@ -1,4 +1,4 @@
-package com.monarchwang.website.rest;
+package com.monarchwang.website.controller;
 
 import com.monarchwang.website.common.RedisService;
 import com.monarchwang.website.service.UserService;

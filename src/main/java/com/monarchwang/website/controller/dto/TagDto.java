@@ -1,4 +1,4 @@
-package com.monarchwang.website.rest.dto;
+package com.monarchwang.website.controller.dto;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;

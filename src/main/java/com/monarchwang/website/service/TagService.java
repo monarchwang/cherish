@@ -2,7 +2,7 @@ package com.monarchwang.website.service;
 
 import com.monarchwang.website.dao.mybatis.model.Tag;
 import com.monarchwang.website.utils.response.ListResult;
-import com.monarchwang.website.rest.dto.TagDto;
+import com.monarchwang.website.controller.dto.TagDto;
 
 /**
  * Created by liang on 2017/8/1.

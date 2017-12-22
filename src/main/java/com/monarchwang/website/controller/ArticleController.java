@@ -1,8 +1,8 @@
-package com.monarchwang.website.rest;
+package com.monarchwang.website.controller;
 
 import com.monarchwang.website.common.CherishException;
 import com.monarchwang.website.config.OssProperties;
-import com.monarchwang.website.rest.dto.ArticleDto;
+import com.monarchwang.website.controller.dto.ArticleDto;
 import com.monarchwang.website.service.ArticleService;
 import com.monarchwang.website.utils.system.ExceptionEnum;
 import com.monarchwang.website.utils.aliyun.OSSClientUtil;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -29,12 +30,11 @@ import java.util.List;
 @CrossOrigin
 public class ArticleController {
 
-    @Autowired
+    @Resource
     private ArticleService articleService;
-
-    @Autowired
+    @Resource
     private OSSClientUtil ossClientUtil;
-    @Autowired
+    @Resource
     private OssProperties ossProperties;
 
     private SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy/MM/dd/");
@@ -54,12 +54,12 @@ public class ArticleController {
 
 
     @GetMapping("release")
-    public ResponseData<String> release(int articleId){
-    	ResponseData<String> responseData = new ResponseData<>();
+    public ResponseData<String> release(int articleId) {
+        ResponseData<String> responseData = new ResponseData<>();
 
-    	articleService.release(articleId);
+        articleService.release(articleId);
 
-    	return responseData;
+        return responseData;
     }
 
 
@@ -118,9 +118,9 @@ public class ArticleController {
                     throw new CherishException(ExceptionEnum.UPLOAD_FILE_FAILED);
                 }
                 fileurl = ossProperties.getFileUrl() + "/" + fileName;
-                response.getWriter().write(fileurl);
             }
         }
+        response.getWriter().write(fileurl);
     }
 
 }

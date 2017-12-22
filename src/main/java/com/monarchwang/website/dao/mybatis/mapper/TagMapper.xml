@@ -32,7 +32,7 @@
         WHERE name = #{name}
     </select>
 
-    <select id="selectTagsByStatus" resultType="com.monarchwang.website.rest.dto.TagDto">
+    <select id="selectTagsByStatus" resultType="com.monarchwang.website.controller.dto.TagDto">
         SELECT
         t.id,
         t.name,

@@ -1,6 +1,6 @@
 package com.monarchwang.website.service;
 
-import com.monarchwang.website.rest.dto.ArticleDto;
+import com.monarchwang.website.controller.dto.ArticleDto;
 import com.monarchwang.website.utils.response.ListResult;
 
 /**

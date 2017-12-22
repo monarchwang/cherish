@@ -6,7 +6,7 @@ import com.google.common.collect.Lists;
 import com.monarchwang.website.dao.mybatis.mapper.TagMapper;
 import com.monarchwang.website.dao.mybatis.model.Tag;
 import com.monarchwang.website.utils.response.ListResult;
-import com.monarchwang.website.rest.dto.TagDto;
+import com.monarchwang.website.controller.dto.TagDto;
 import com.monarchwang.website.service.TagService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;

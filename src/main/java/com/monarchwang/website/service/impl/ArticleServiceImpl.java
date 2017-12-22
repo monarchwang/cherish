@@ -11,7 +11,7 @@ import com.monarchwang.website.dao.mybatis.model.Article;
 import com.monarchwang.website.dao.mybatis.model.ArticleTagRelation;
 import com.monarchwang.website.dao.mongo.ArticleDetailMongoDao;
 import com.monarchwang.website.dao.mongo.model.ArticleDetail;
-import com.monarchwang.website.rest.dto.ArticleDto;
+import com.monarchwang.website.controller.dto.ArticleDto;
 import com.monarchwang.website.service.ArticleService;
 import com.monarchwang.website.utils.system.ExceptionEnum;
 import com.monarchwang.website.utils.response.ListResult;
