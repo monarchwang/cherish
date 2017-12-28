@@ -1,5 +1,7 @@
 package com.monarchwang.website.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.monarchwang.website.dao.mybatis.model.Tag;
 import com.monarchwang.website.controller.dto.TagDto;
 import com.monarchwang.website.service.TagService;
@@ -24,9 +26,9 @@ public class TagController {
     private TagService tagService;
 
     @PostMapping("create")
-    public ResponseData<String> create(String tagName) {
+    public ResponseData<String> create(@RequestBody JSONObject params) {
         ResponseData<String> responseData = new ResponseData<>();
-
+        String tagName = params.getString("tagName");
         if (StringUtils.isNotEmpty(tagName)) {
             Tag tag = tagService.queryByName(tagName);
             if (null != tag) {

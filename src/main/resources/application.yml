@@ -8,7 +8,7 @@ pagehelper:
   params: count=countSql
 logging:
   level:
-    com.monarchwang: debug
+    com.monarchwang: info
   file: cherish.log
   config: classpath:logback.xml
 
@@ -21,3 +21,8 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 debug: true
+apiserver:
+  registerUrl: http://localhost:8080/ApiServer/API/register
+  appCode: BLOG
+  appName: Personal Blog
+  port: ${server.port}
