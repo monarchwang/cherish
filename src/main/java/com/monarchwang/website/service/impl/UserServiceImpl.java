@@ -16,4 +16,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
+    @Override
+    public boolean checkUserPwd(String account, String password) {
+        return userMapper.checkUserPwd(account, password);
+    }
+
 }

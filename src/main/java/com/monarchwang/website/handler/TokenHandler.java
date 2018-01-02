@@ -35,14 +35,7 @@ public class TokenHandler implements HandlerInterceptor {
 			return true;
 		}
 
-		Cookie[] cookies = request.getCookies();
-		String token = null;
-		if (cookies != null)
-			for (Cookie cookie : cookies) {
-				if (cookie != null && cookie.getName().equals("token")) {
-					token = cookie.getValue();
-				}
-			}
+		String token = request.getHeader("token");
 
 		if (StringUtils.isEmpty(token) || redisService.get(token) == null) {
 			//没有token  或者token失效,抛出自定义异常
