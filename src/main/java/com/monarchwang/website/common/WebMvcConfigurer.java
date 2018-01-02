@@ -63,8 +63,9 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
 
     }
 
-    @Scheduled(cron = "*/10 * * * * ?")
+    @Scheduled(cron = "0 */5 * * * ?")
     public void heartBeatMonitor(){
+        //五分钟执行一次
         LOG.info("========发送心跳检测包========");
         ApiServerRegisterUtils.register(apiRegisterConfig, httpClientTemplate);
     }
