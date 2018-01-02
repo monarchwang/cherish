@@ -48,3 +48,8 @@ aliyun:
     AccessKey:
     Bucket:
     FileUrl:
+apiserver:
+  registerUrl: http://localhost:8080/ApiServer/api/register
+  appCode: BLOG
+  appName: Personal Blog
+  port: ${server.port}

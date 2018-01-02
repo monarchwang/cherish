@@ -88,7 +88,7 @@ public class ArticleController {
      * @return
      */
     @PostMapping(value = "saveOrUpdate", produces = {"application/json"})
-    public ResponseData<Integer> saveOrUpdate(ArticleDto articleDto) {
+    public ResponseData<Integer> saveOrUpdate(@RequestBody ArticleDto articleDto) {
         //返回文章id
         ResponseData<Integer> responseData = new ResponseData<>();
 
