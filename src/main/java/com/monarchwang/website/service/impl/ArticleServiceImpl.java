@@ -4,10 +4,13 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.google.common.collect.Lists;
 import com.monarchwang.website.common.CherishException;
+import com.monarchwang.website.controller.dto.ArticleCommentDto;
+import com.monarchwang.website.dao.mybatis.mapper.ArticleCommentMapper;
 import com.monarchwang.website.dao.mybatis.mapper.ArticleMapper;
 import com.monarchwang.website.dao.mybatis.mapper.ArticleTagRelationMapper;
 import com.monarchwang.website.dao.mybatis.mapper.TagMapper;
 import com.monarchwang.website.dao.mybatis.model.Article;
+import com.monarchwang.website.dao.mybatis.model.ArticleComment;
 import com.monarchwang.website.dao.mybatis.model.ArticleTagRelation;
 import com.monarchwang.website.dao.mongo.ArticleDetailMongoDao;
 import com.monarchwang.website.dao.mongo.model.ArticleDetail;
@@ -24,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
@@ -39,15 +43,14 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Resource
     private ArticleMapper articleMapper;
-
     @Resource
     private ArticleDetailMongoDao articleDetailMongoDao;
-
     @Resource
     private ArticleTagRelationMapper articleTagRelationMapper;
-
     @Resource
     private TagMapper tagMapper;
+    @Resource
+    private ArticleCommentMapper articleCommentMapper;
 
 
     @Override
@@ -185,6 +188,9 @@ public class ArticleServiceImpl implements ArticleService {
         //更新浏览次数
         articleMapper.increaseViewNumber(article.getId());
 
+        //加载评论
+        dto.setComments(findCommentsByArticleId(id));
+
         return dto;
     }
 
@@ -196,5 +202,52 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void release(int articleId) {
         articleMapper.release(articleId);
+    }
+
+    @Override
+    public void agreeArticle(int articleId) {
+        articleMapper.increaseAgreeNumber(articleId);
+    }
+
+    @Override
+    @Transactional
+    public Integer saveComment(ArticleComment comment) {
+        //新增或修改评论
+        if (comment.getId() != null) {
+            articleCommentMapper.updateByPrimaryKeySelective(comment);
+        } else {
+            articleCommentMapper.insertSelective(comment);
+            //文章对应评论数加1
+            articleMapper.increaseCommentNumber(comment.getArticleId());
+        }
+
+        return comment.getId();
+    }
+
+    @Override
+    public List<ArticleCommentDto> findCommentsByArticleId(Integer articleId) {
+        List<ArticleCommentDto> dtos = Lists.newArrayList();
+        List<ArticleComment> comments = articleCommentMapper.findCommentsByArticleId(articleId);
+        if (CollectionUtils.isNotEmpty(comments)) {
+            comments.forEach(c -> {
+                if (c.getParentId() == 0) {
+                    //第一级评论
+                    ArticleCommentDto dto = new ArticleCommentDto();
+                    BeanUtils.copyProperties(c, dto);
+                    List<ArticleCommentDto> replies = Lists.newArrayList();
+                    //查找第二级评论
+                    comments.forEach(d -> {
+                        if (Objects.equals(d.getParentId(), c.getId())) {
+                            ArticleCommentDto childDto = new ArticleCommentDto();
+                            BeanUtils.copyProperties(d, childDto);
+                            replies.add(childDto);
+                        }
+                    });
+                    dto.setReplies(replies);
+                    dtos.add(dto);
+                }
+            });
+        }
+        return dtos;
     }
 }

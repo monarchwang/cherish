@@ -2,7 +2,9 @@ package com.monarchwang.website.controller;
 
 import com.monarchwang.website.common.CherishException;
 import com.monarchwang.website.config.OssProperties;
+import com.monarchwang.website.controller.dto.ArticleCommentDto;
 import com.monarchwang.website.controller.dto.ArticleDto;
+import com.monarchwang.website.dao.mybatis.model.ArticleComment;
 import com.monarchwang.website.service.ArticleService;
 import com.monarchwang.website.utils.system.ExceptionEnum;
 import com.monarchwang.website.utils.aliyun.OSSClientUtil;
@@ -10,6 +12,7 @@ import com.monarchwang.website.utils.response.ListResult;
 import com.monarchwang.website.utils.response.ResponseData;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -94,6 +97,24 @@ public class ArticleController {
 
         int articleId = articleService.saveOrUpdate(articleDto);
         responseData.setData(articleId);
+
+        return responseData;
+    }
+
+
+    /**
+     * 新增评论
+     *
+     * @param articleCommentDto
+     * @return
+     */
+    @PostMapping(value = "saveComment")
+    public ResponseData<Integer> saveComment(@RequestBody ArticleCommentDto articleCommentDto) {
+
+        ResponseData<Integer> responseData = new ResponseData<>();
+        ArticleComment comment = new ArticleComment();
+        BeanUtils.copyProperties(articleCommentDto, comment);
+        articleService.saveComment(comment);
 
         return responseData;
     }

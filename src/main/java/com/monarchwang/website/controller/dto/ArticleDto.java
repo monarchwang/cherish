@@ -12,34 +12,36 @@ import java.util.List;
 @Data
 public class ArticleDto {
 
-	private int id;
+    private int id;
 
-	private String brief;
+    private String brief;
 
-	private int userId;
+    private int userId;
 
-	private String title;
+    private String title;
 
-	private List<String> tags;
+    private List<String> tags;
 
-	private List<Integer> tagIds;
+    private List<Integer> tagIds;
 
-	private String content;
+    private String content;
 
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
-	private Date createTime;
-	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
-	private Date updateTime;
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    private Date updateTime;
 
-	//浏览数
-	private int viewNumber;
+    //浏览数
+    private int viewNumber;
 
-	//评论数
-	private int commentNumber;
+    //评论数
+    private int commentNumber;
 
-	//0：草稿 ，1：已发布
-	private int status;
+    //0：草稿 ，1：已发布
+    private int status;
 
-	//0:保存，1发布
-	private int type;
+    //0:保存，1发布
+    private int type;
+
+    private List<ArticleCommentDto> comments;
 }

@@ -46,6 +46,12 @@ public class Article implements Serializable {
     private Integer viewNumber;
 
     /**
+     * 文章赞总数
+     */
+    @Column(name = "agree_number")
+    private Integer agreeNumber;
+
+    /**
      * 文章评论数
      */
     @Column(name = "comments_number")
@@ -76,6 +82,14 @@ public class Article implements Serializable {
     private String lastModifiedBy;
 
     private static final long serialVersionUID = 1L;
+
+    public Integer getAgreeNumber() {
+        return agreeNumber;
+    }
+
+    public void setAgreeNumber(Integer agreeNumber) {
+        this.agreeNumber = agreeNumber;
+    }
 
     /**
      * 获取主键

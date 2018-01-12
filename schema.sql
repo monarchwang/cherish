@@ -58,7 +58,6 @@ CREATE TABLE `article`(
   `status` TINYINT NOT NULL DEFAULT 0 COMMENT '文章状态，@0：草稿，@1：发布',
   `view_number` INT(10) NOT NULL DEFAULT 0 COMMENT '文章浏览总数',
   `comments_number` INT(10)NOT NULL DEFAULT 0 COMMENT '文章评论数',
-
   `delete_flag` TINYINT DEFAULT 0 COMMENT '当前记录是否有效@0:有效@1:无效',
   `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录最后更新时间',
@@ -84,3 +83,51 @@ CREATE TABLE `article_tag_relation`(
   INDEX (`article_id`),
   INDEX (`tag_id`)
 )COMMENT='标签、文章关联关系表' DEFAULT CHARSET = 'utf8' COLLATE='utf8_general_ci' ENGINE=InnoDB;
+
+# 文章评论表
+DROP TABLE IF EXISTS `article_comment`;
+CREATE TABLE `article_comment`(
+  `id` INT(10) AUTO_INCREMENT NOT NULL COMMENT '主键',
+  `article_id` INT(10) NOT NULL DEFAULT 0 COMMENT '文章id',
+  `from` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '评论发起者',
+  `to` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '评论对象',
+  `agree_num` INT(10) NOT NULL DEFAULT 0 COMMENT '赞同数',
+  `disagree_num` INT(10) NOT NULL DEFAULT 0 COMMENT '反对数',
+  `content` TEXT  COMMENT '评论内容',
+  `floor` INT(10) NOT NULL DEFAULT 0 COMMENT '评论所在楼层',
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+
+  PRIMARY KEY (`id`),
+  INDEX index_ac_article_id (`article_id`),
+  INDEX index_ac_from_to (`from`,`to`)
+)COMMENT='文章评论表' DEFAULT CHARSET = 'utf8' COLLATE='utf8_general_ci' ENGINE=InnoDB;
+
+
+ALTER TABLE `article` ADD COLUMN `agree_number` INT(10)NOT NULL DEFAULT 0 COMMENT '文章赞数';
+ALTER TABLE `article_comment` ADD COLUMN `parent_id` INT(10) NOT NULL DEFAULT '0' COMMENT '父节点id';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

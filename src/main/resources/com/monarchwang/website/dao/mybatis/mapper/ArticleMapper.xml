@@ -13,6 +13,7 @@
         <result column="status" jdbcType="TINYINT" property="status"/>
         <result column="view_number" jdbcType="INTEGER" property="viewNumber"/>
         <result column="comments_number" jdbcType="INTEGER" property="commentsNumber"/>
+        <result column="agree_number" jdbcType="INTEGER" property="agreeNum"/>
         <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
@@ -22,6 +23,17 @@
         UPDATE article
         SET view_number = view_number + 1
         WHERE id = #{id}
+    </update>
+
+    <update id="increaseAgreeNumber">
+        UPDATE article
+        SET agree_number = agree_number + 1
+        WHERE id = #{articleId}
+    </update>
+    <update id="increaseCommentNumber">
+        UPDATE article
+        SET comments_number = comments_number + 1
+        WHERE id = #{articleId}
     </update>
     <update id="softDelete">
         UPDATE article

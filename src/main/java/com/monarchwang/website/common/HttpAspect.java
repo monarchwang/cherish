@@ -31,8 +31,7 @@ public class HttpAspect {
         HttpServletRequest request = attributes.getRequest();
 
         //打印url、method、ip、类方法、参数
-        logger.info("HttpAspect ---- url: {}, method: {}, ip: {}, class_method: {}, args: {}", request.getRequestURL(), request.getMethod(), request.getRemoteAddr(), joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName(),
-                JSON.toJSONString(joinPoint.getArgs()));
+        logger.info("HttpAspect ---- url: {}, method: {}, ip: {}, class_method: {}", request.getRequestURL(), request.getMethod(), request.getRemoteAddr(), joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
 
     }
 
