@@ -56,14 +56,14 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     }
 
 
-//    @PostConstruct
+    @PostConstruct
     public void registerApi() {
         LOG.info("--------开始向APISERVER注册-------");
         ApiServerRegisterUtils.register(apiRegisterConfig, httpClientTemplate);
 
     }
 
-//    @Scheduled(cron = "0 */5 * * * ?")
+    @Scheduled(cron = "0 */5 * * * ?")
     public void heartBeatMonitor(){
         //五分钟执行一次
         LOG.info("========发送心跳检测包========");
