@@ -96,7 +96,7 @@ CREATE TABLE `article_comment`(
   `content` TEXT  COMMENT '评论内容',
   `floor` INT(10) NOT NULL DEFAULT 0 COMMENT '评论所在楼层',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',``
 
   PRIMARY KEY (`id`),
   INDEX index_ac_article_id (`article_id`),

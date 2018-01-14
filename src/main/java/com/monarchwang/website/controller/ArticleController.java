@@ -119,6 +119,21 @@ public class ArticleController {
         return responseData;
     }
 
+    /**
+     * 获取评论
+     *
+     * @param blogId
+     * @return
+     */
+    @GetMapping(value = "getComments")
+    public ResponseData<List<ArticleCommentDto>> getComments(Integer blogId) {
+
+        ResponseData<List<ArticleCommentDto>> responseData = new ResponseData<>();
+        responseData.setData(articleService.findCommentsByArticleId(blogId));
+
+        return responseData;
+    }
+
 
     /**
      * 上传图片

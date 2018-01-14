@@ -13,7 +13,7 @@
         <result column="status" jdbcType="TINYINT" property="status"/>
         <result column="view_number" jdbcType="INTEGER" property="viewNumber"/>
         <result column="comments_number" jdbcType="INTEGER" property="commentsNumber"/>
-        <result column="agree_number" jdbcType="INTEGER" property="agreeNum"/>
+        <result column="agree_number" jdbcType="INTEGER" property="agreeNumber"/>
         <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
