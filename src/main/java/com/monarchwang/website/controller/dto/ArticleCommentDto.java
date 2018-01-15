@@ -1,5 +1,7 @@
 package com.monarchwang.website.controller.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -21,36 +23,38 @@ public class ArticleCommentDto {
     /**
      * 评论发起者
      */
-    private String from;
+    private String fromUser;
 
     /**
      * 评论对象
      */
-    private String to;
+    private String toUser;
 
     /**
      * 赞同数
      */
-    private Integer agreeNum;
+    private Integer agreeNumber;
 
     /**
      * 反对数
      */
-    private Integer disagreeNum;
+    private Integer disagreeNumber;
 
     /**
      * 评论所在楼层
      */
-    private Integer floor;
+    private Integer floorNumber;
 
     /**
      * 创建时间
      */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**
      * 修改时间
      */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     /**

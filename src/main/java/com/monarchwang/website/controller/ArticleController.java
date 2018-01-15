@@ -114,7 +114,7 @@ public class ArticleController {
         ResponseData<Integer> responseData = new ResponseData<>();
         ArticleComment comment = new ArticleComment();
         BeanUtils.copyProperties(articleCommentDto, comment);
-        articleService.saveComment(comment);
+        responseData.setData(articleService.saveComment(comment));
 
         return responseData;
     }
@@ -131,6 +131,21 @@ public class ArticleController {
         ResponseData<List<ArticleCommentDto>> responseData = new ResponseData<>();
         responseData.setData(articleService.findCommentsByArticleId(blogId));
 
+        return responseData;
+    }
+
+
+    /**
+     * 文章点赞
+     *
+     * @param blogId
+     * @param num
+     * @return
+     */
+    @GetMapping(value = "praise")
+    public ResponseData<Integer> praise(Integer blogId, Integer num) {
+        ResponseData<Integer> responseData = new ResponseData<>();
+        responseData.setData(articleService.praise(blogId, num));
         return responseData;
     }
 

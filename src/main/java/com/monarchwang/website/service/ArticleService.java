@@ -28,4 +28,6 @@ public interface ArticleService {
     Integer saveComment(ArticleComment comment);
 
     List<ArticleCommentDto> findCommentsByArticleId(Integer articleId);
+
+    Integer praise(Integer blogId, Integer num);
 }

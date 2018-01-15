@@ -89,23 +89,25 @@ DROP TABLE IF EXISTS `article_comment`;
 CREATE TABLE `article_comment`(
   `id` INT(10) AUTO_INCREMENT NOT NULL COMMENT '主键',
   `article_id` INT(10) NOT NULL DEFAULT 0 COMMENT '文章id',
-  `from` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '评论发起者',
-  `to` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '评论对象',
-  `agree_num` INT(10) NOT NULL DEFAULT 0 COMMENT '赞同数',
-  `disagree_num` INT(10) NOT NULL DEFAULT 0 COMMENT '反对数',
+  `from_user` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '评论发起者',
+  `to_user` VARCHAR(64) NOT NULL DEFAULT '' COMMENT '评论对象',
+  `agree_number` INT(10) NOT NULL DEFAULT 0 COMMENT '赞同数',
+  `disagree_number` INT(10) NOT NULL DEFAULT 0 COMMENT '反对数',
   `content` TEXT  COMMENT '评论内容',
-  `floor` INT(10) NOT NULL DEFAULT 0 COMMENT '评论所在楼层',
+  `parent_id` INT(10) NOT NULL DEFAULT '0' COMMENT '父节点id',
+  `floor_number` INT(10) NOT NULL DEFAULT 0 COMMENT '评论所在楼层',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',``
+  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
 
   PRIMARY KEY (`id`),
   INDEX index_ac_article_id (`article_id`),
-  INDEX index_ac_from_to (`from`,`to`)
+  INDEX index_ac_parent_id (`parent_id`),
+  INDEX index_ac_floor_num (`floor_number`),
+  INDEX index_ac_from_to (`from_user`,`to_user`)
 )COMMENT='文章评论表' DEFAULT CHARSET = 'utf8' COLLATE='utf8_general_ci' ENGINE=InnoDB;
 
 
 ALTER TABLE `article` ADD COLUMN `agree_number` INT(10)NOT NULL DEFAULT 0 COMMENT '文章赞数';
-ALTER TABLE `article_comment` ADD COLUMN `parent_id` INT(10) NOT NULL DEFAULT '0' COMMENT '父节点id';
 
 
 

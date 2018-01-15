@@ -7,12 +7,13 @@
         -->
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="article_id" property="articleId" jdbcType="INTEGER"/>
-        <result column="from" property="from" jdbcType="VARCHAR"/>
-        <result column="to" property="to" jdbcType="VARCHAR"/>
-        <result column="agree_num" property="agreeNum" jdbcType="INTEGER"/>
-        <result column="disagree_num" property="disagreeNum" jdbcType="INTEGER"/>
+        <result column="from_user" property="fromUser" jdbcType="VARCHAR"/>
+        <result column="to_user" property="toUser" jdbcType="VARCHAR"/>
+        <result column="agree_number" property="agreeNumber" jdbcType="INTEGER"/>
+        <result column="disagree_number" property="disagreeNumber" jdbcType="INTEGER"/>
         <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
-        <result column="floor" property="floor" jdbcType="INTEGER"/>
+        <result column="floor_number" property="floorNumber" jdbcType="INTEGER"/>
+        <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="content" property="content" jdbcType="LONGVARCHAR"/>
@@ -23,5 +24,11 @@
         FROM article_comment
         WHERE article_id = #{articleId}
         ORDER BY create_time ASC
+    </select>
+
+    <select id="getMaxFloorByArticleId" resultType="java.lang.Integer">
+        SELECT max(c.floor_number)
+        FROM article_comment c
+        WHERE c.parent_id = 0 AND c.article_id = #{articleId}
     </select>
 </mapper>

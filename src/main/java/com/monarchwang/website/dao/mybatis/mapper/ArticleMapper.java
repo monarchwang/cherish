@@ -18,4 +18,5 @@ public interface ArticleMapper extends MyMapper<Article> {
     void increaseAgreeNumber(@Param("articleId") Integer articleId);
 
     void increaseCommentNumber(@Param("articleId") Integer articleId);
+
 }

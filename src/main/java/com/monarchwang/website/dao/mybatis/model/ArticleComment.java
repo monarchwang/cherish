@@ -22,24 +22,26 @@ public class ArticleComment implements Serializable {
     /**
      * 评论发起者
      */
-    private String from;
+    @Column(name = "from_user")
+    private String fromUser;
 
     /**
      * 评论对象
      */
-    private String to;
+    @Column(name = "to_user")
+    private String toUser;
 
     /**
      * 赞同数
      */
-    @Column(name = "agree_num")
-    private Integer agreeNum;
+    @Column(name = "agree_number")
+    private Integer agreeNumber;
 
     /**
      * 反对数
      */
-    @Column(name = "disagree_num")
-    private Integer disagreeNum;
+    @Column(name = "disagree_number")
+    private Integer disagreeNumber;
 
     @Column(name = "parent_id")
     private Integer parentId;
@@ -47,7 +49,8 @@ public class ArticleComment implements Serializable {
     /**
      * 评论所在楼层
      */
-    private Integer floor;
+    @Column(name = "floor_number")
+    private Integer floorNumber;
 
     /**
      * 创建时间
@@ -69,6 +72,53 @@ public class ArticleComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(Integer articleId) {
+        this.articleId = articleId;
+    }
+
+    public String getFromUser() {
+        return fromUser;
+    }
+
+    public void setFromUser(String fromUser) {
+        this.fromUser = fromUser;
+    }
+
+    public String getToUser() {
+        return toUser;
+    }
+
+    public void setToUser(String toUser) {
+        this.toUser = toUser;
+    }
+
+    public Integer getAgreeNumber() {
+        return agreeNumber;
+    }
+
+    public void setAgreeNumber(Integer agreeNumber) {
+        this.agreeNumber = agreeNumber;
+    }
+
+    public Integer getDisagreeNumber() {
+        return disagreeNumber;
+    }
+
+    public void setDisagreeNumber(Integer disagreeNumber) {
+        this.disagreeNumber = disagreeNumber;
+    }
 
     public Integer getParentId() {
         return parentId;
@@ -78,183 +128,35 @@ public class ArticleComment implements Serializable {
         this.parentId = parentId;
     }
 
-    /**
-     * 获取主键
-     *
-     * @return id - 主键
-     */
-    public Integer getId() {
-        return id;
+    public Integer getFloorNumber() {
+        return floorNumber;
     }
 
-    /**
-     * 设置主键
-     *
-     * @param id 主键
-     */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setFloorNumber(Integer floorNumber) {
+        this.floorNumber = floorNumber;
     }
 
-    /**
-     * 获取文章id
-     *
-     * @return article_id - 文章id
-     */
-    public Integer getArticleId() {
-        return articleId;
-    }
-
-    /**
-     * 设置文章id
-     *
-     * @param articleId 文章id
-     */
-    public void setArticleId(Integer articleId) {
-        this.articleId = articleId;
-    }
-
-    /**
-     * 获取评论发起者
-     *
-     * @return from - 评论发起者
-     */
-    public String getFrom() {
-        return from;
-    }
-
-    /**
-     * 设置评论发起者
-     *
-     * @param from 评论发起者
-     */
-    public void setFrom(String from) {
-        this.from = from == null ? null : from.trim();
-    }
-
-    /**
-     * 获取评论对象
-     *
-     * @return to - 评论对象
-     */
-    public String getTo() {
-        return to;
-    }
-
-    /**
-     * 设置评论对象
-     *
-     * @param to 评论对象
-     */
-    public void setTo(String to) {
-        this.to = to == null ? null : to.trim();
-    }
-
-    /**
-     * 获取赞同数
-     *
-     * @return agree_num - 赞同数
-     */
-    public Integer getAgreeNum() {
-        return agreeNum;
-    }
-
-    /**
-     * 设置赞同数
-     *
-     * @param agreeNum 赞同数
-     */
-    public void setAgreeNum(Integer agreeNum) {
-        this.agreeNum = agreeNum;
-    }
-
-    /**
-     * 获取反对数
-     *
-     * @return disagree_num - 反对数
-     */
-    public Integer getDisagreeNum() {
-        return disagreeNum;
-    }
-
-    /**
-     * 设置反对数
-     *
-     * @param disagreeNum 反对数
-     */
-    public void setDisagreeNum(Integer disagreeNum) {
-        this.disagreeNum = disagreeNum;
-    }
-
-    /**
-     * 获取评论所在楼层
-     *
-     * @return floor - 评论所在楼层
-     */
-    public Integer getFloor() {
-        return floor;
-    }
-
-    /**
-     * 设置评论所在楼层
-     *
-     * @param floor 评论所在楼层
-     */
-    public void setFloor(Integer floor) {
-        this.floor = floor;
-    }
-
-    /**
-     * 获取创建时间
-     *
-     * @return create_time - 创建时间
-     */
     public Date getCreateTime() {
         return createTime;
     }
 
-    /**
-     * 设置创建时间
-     *
-     * @param createTime 创建时间
-     */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    /**
-     * 获取修改时间
-     *
-     * @return update_time - 修改时间
-     */
     public Date getUpdateTime() {
         return updateTime;
     }
 
-    /**
-     * 设置修改时间
-     *
-     * @param updateTime 修改时间
-     */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
-    /**
-     * 获取评论内容
-     *
-     * @return content - 评论内容
-     */
     public String getContent() {
         return content;
     }
 
-    /**
-     * 设置评论内容
-     *
-     * @param content 评论内容
-     */
     public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+        this.content = content;
     }
 }

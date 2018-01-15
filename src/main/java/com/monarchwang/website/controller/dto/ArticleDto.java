@@ -35,7 +35,10 @@ public class ArticleDto {
     private int viewNumber;
 
     //评论数
-    private int commentNumber;
+    private int commentsNumber;
+
+    //点赞数
+    private int agreeNumber;
 
     //0：草稿 ，1：已发布
     private int status;

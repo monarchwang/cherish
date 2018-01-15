@@ -189,7 +189,8 @@ public class ArticleServiceImpl implements ArticleService {
         articleMapper.increaseViewNumber(article.getId());
 
         //加载评论
-        dto.setComments(findCommentsByArticleId(id));
+        List<ArticleCommentDto> comments = findCommentsByArticleId(id);
+        dto.setComments(comments);
 
         return dto;
     }
@@ -212,6 +213,12 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     @Transactional
     public Integer saveComment(ArticleComment comment) {
+        //首先获取评论所在楼层
+        if (comment.getParentId() == null || comment.getParentId() == 0) {
+            Integer floor = articleCommentMapper.getMaxFloorByArticleId(comment.getArticleId());
+            comment.setFloorNumber(floor != null ? floor + 1 : 1);
+        }
+
         //新增或修改评论
         if (comment.getId() != null) {
             articleCommentMapper.updateByPrimaryKeySelective(comment);
@@ -249,5 +256,21 @@ public class ArticleServiceImpl implements ArticleService {
             });
         }
         return dtos;
+    }
+
+    @Override
+    @Transactional
+    public Integer praise(Integer blogId, Integer num) {
+
+        int praiseSum = 0;
+        Article article = articleMapper.selectByPrimaryKey(blogId);
+        if (article != null) {
+            praiseSum = article.getAgreeNumber() + num;
+            praiseSum = praiseSum < 0 ? 0 : praiseSum;
+            article.setAgreeNumber(praiseSum);
+            articleMapper.updateByPrimaryKeySelective(article);
+        }
+
+        return praiseSum;
     }
 }
