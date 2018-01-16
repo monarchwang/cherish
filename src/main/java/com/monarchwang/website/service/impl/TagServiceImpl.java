@@ -9,9 +9,12 @@ import com.monarchwang.website.utils.response.ListResult;
 import com.monarchwang.website.controller.dto.TagDto;
 import com.monarchwang.website.service.TagService;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -79,5 +82,33 @@ public class TagServiceImpl implements TagService {
     @Override
     public void update(Tag tag) {
         tagMapper.updateByPrimaryKeySelective(tag);
+    }
+
+    @Override
+    public ListResult<TagDto> getAllTags(String tagName) {
+        ListResult<TagDto> listResult = new ListResult<>();
+
+        List<Tag> tags = null;
+        if (StringUtils.isNotEmpty(tagName)) {
+            Tag example = new Tag();
+            example.setName(tagName);
+            tags = tagMapper.selectByExample(example);
+        } else {
+            tags = tagMapper.selectAll();
+        }
+        List<TagDto> tagDtos = new ArrayList<>();
+        if (CollectionUtils.isNotEmpty(tags)) {
+            tags.forEach(t -> {
+                if (t.getDeleteFlag() != 1){
+                    TagDto dto = new TagDto();
+                    BeanUtils.copyProperties(t, dto);
+                    tagDtos.add(dto);
+                }
+            });
+        }
+
+        listResult.setRows(tagDtos);
+        listResult.setTotal(tagDtos.size());
+        return listResult;
     }
 }

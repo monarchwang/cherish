@@ -20,4 +20,6 @@ public interface TagService {
 	ListResult<TagDto> queryTagByPage(Integer pageNum, Integer pageSize,Integer status);
 
     void update(Tag tag);
+
+    ListResult<TagDto> getAllTags(String tagName);
 }

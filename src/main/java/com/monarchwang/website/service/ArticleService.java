@@ -15,7 +15,7 @@ public interface ArticleService {
     int saveOrUpdate(ArticleDto articleDto);
 
 
-    ListResult<ArticleDto> findByPage(Integer pageNum, Integer pageSize, Integer status);
+    ListResult<ArticleDto> findByPage(Integer pageNum, Integer pageSize, Integer status,String tagName);
 
     ArticleDto findArticleById(int id);
 

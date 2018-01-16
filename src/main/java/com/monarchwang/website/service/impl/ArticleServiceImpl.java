@@ -144,12 +144,12 @@ public class ArticleServiceImpl implements ArticleService {
 
 
     @Override
-    public ListResult<ArticleDto> findByPage(Integer pageNum, Integer pageSize, Integer status) {
+    public ListResult<ArticleDto> findByPage(Integer pageNum, Integer pageSize, Integer status, String tagName) {
 
         ListResult<ArticleDto> result = new ListResult<>();
         if (pageNum != null && pageSize != null) {
             PageHelper.startPage(pageNum, pageSize);
-            Page<Article> articlePage = (Page<Article>) articleMapper.findByPage(status);
+            Page<Article> articlePage = (Page<Article>) articleMapper.findByPage(status, tagName);
 
             if (CollectionUtils.isNotEmpty(articlePage.getResult())) {
                 result.setTotal(articlePage.getTotal());
@@ -244,7 +244,7 @@ public class ArticleServiceImpl implements ArticleService {
                     List<ArticleCommentDto> replies = Lists.newArrayList();
                     //查找第二级评论
                     comments.forEach(d -> {
-                        if (Objects.equals(d.getParentId(), c.getId())) {
+                        if (Objects.equals(d.getFloorNumber(), c.getFloorNumber()) && !Objects.equals(c.getId(), d.getId())) {
                             ArticleCommentDto childDto = new ArticleCommentDto();
                             BeanUtils.copyProperties(d, childDto);
                             replies.add(childDto);

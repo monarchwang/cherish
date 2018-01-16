@@ -46,10 +46,10 @@ public class ArticleController {
 
 
     @GetMapping("query")
-    public ResponseData<ListResult<ArticleDto>> queryDataList(Integer pageNum, Integer pageSize) {
+    public ResponseData<ListResult<ArticleDto>> queryDataList(Integer pageNum, Integer pageSize, String tagName) {
         ResponseData<ListResult<ArticleDto>> responseData = new ResponseData<>();
 
-        ListResult<ArticleDto> articleDtos = articleService.findByPage(pageNum, pageSize, null);
+        ListResult<ArticleDto> articleDtos = articleService.findByPage(pageNum, pageSize, null,tagName);
         responseData.setData(articleDtos);
 
         return responseData;

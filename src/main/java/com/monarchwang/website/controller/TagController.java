@@ -63,6 +63,16 @@ public class TagController {
         return responseData;
     }
 
+    @GetMapping("getAllTags")
+    public ResponseData<ListResult<TagDto>> getAllTags(String tagName) {
+
+        ResponseData<ListResult<TagDto>> responseData = new ResponseData<>();
+
+        responseData.setData(tagService.getAllTags(tagName));
+
+        return responseData;
+    }
+
 
     @PostMapping("update")
     public ResponseData<String> update(Integer id, Integer status) {

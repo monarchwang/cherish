@@ -46,10 +46,15 @@
         WHERE id = #{id}
     </update>
     <select id="findByPage" resultMap="BaseResultMap">
-        SELECT * FROM article WHERE
-        1 = 1 AND delete_flag = 0
+        SELECT a.* FROM article a
+        LEFT JOIN article_tag_relation atr ON a.id = atr.article_id
+        LEFT JOIN tag t ON atr.tag_id = t.id
+        WHERE a.delete_flag = 0
         <if test="status != null">
-            AND status = #{status}
+            AND a.status = #{status}
+        </if>
+        <if test="tagName != null and tagName !=''">
+            AND t.name = #{tagName}
         </if>
         ORDER BY create_time DESC
     </select>
