@@ -3,6 +3,7 @@ package com.monarchwang.website.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.google.common.collect.Lists;
+import com.monarchwang.website.dao.mybatis.mapper.ArticleMapper;
 import com.monarchwang.website.dao.mybatis.mapper.TagMapper;
 import com.monarchwang.website.dao.mybatis.model.Tag;
 import com.monarchwang.website.utils.response.ListResult;
@@ -26,6 +27,8 @@ public class TagServiceImpl implements TagService {
 
     @Resource
     private TagMapper tagMapper;
+    @Resource
+    private ArticleMapper articleMapper;
 
     @Override
     public int saveTag(Tag tag) {
@@ -99,7 +102,7 @@ public class TagServiceImpl implements TagService {
         List<TagDto> tagDtos = new ArrayList<>();
         if (CollectionUtils.isNotEmpty(tags)) {
             tags.forEach(t -> {
-                if (t.getDeleteFlag() != 1){
+                if (t.getDeleteFlag() != 1) {
                     TagDto dto = new TagDto();
                     BeanUtils.copyProperties(t, dto);
                     tagDtos.add(dto);
@@ -107,8 +110,9 @@ public class TagServiceImpl implements TagService {
             });
         }
 
+        Integer articleCount = articleMapper.getArticleCount();
         listResult.setRows(tagDtos);
-        listResult.setTotal(tagDtos.size());
+        listResult.setTotal(articleCount);
         return listResult;
     }
 }

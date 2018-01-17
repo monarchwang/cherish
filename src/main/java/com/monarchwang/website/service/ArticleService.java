@@ -23,7 +23,7 @@ public interface ArticleService {
 
     void release(int articleId);
 
-    void agreeArticle(int articleId);
+    Integer getArticleCount();
 
     Integer saveComment(ArticleComment comment);
 

@@ -206,8 +206,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void agreeArticle(int articleId) {
-        articleMapper.increaseAgreeNumber(articleId);
+    public Integer getArticleCount() {
+       return  articleMapper.getArticleCount();
     }
 
     @Override

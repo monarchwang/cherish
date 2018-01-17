@@ -19,4 +19,5 @@ public interface ArticleMapper extends MyMapper<Article> {
 
     void increaseCommentNumber(@Param("articleId") Integer articleId);
 
+    Integer getArticleCount();
 }
