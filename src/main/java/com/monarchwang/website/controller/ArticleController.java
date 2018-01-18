@@ -1,5 +1,7 @@
 package com.monarchwang.website.controller;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.monarchwang.website.common.CherishException;
 import com.monarchwang.website.config.OssProperties;
 import com.monarchwang.website.controller.dto.ArticleCommentDto;
@@ -49,7 +51,7 @@ public class ArticleController {
     public ResponseData<ListResult<ArticleDto>> queryDataList(Integer pageNum, Integer pageSize, String tagName) {
         ResponseData<ListResult<ArticleDto>> responseData = new ResponseData<>();
 
-        ListResult<ArticleDto> articleDtos = articleService.findByPage(pageNum, pageSize, null,tagName);
+        ListResult<ArticleDto> articleDtos = articleService.findByPage(pageNum, pageSize, null, tagName);
         responseData.setData(articleDtos);
 
         return responseData;
@@ -150,6 +152,8 @@ public class ArticleController {
     }
 
 
+
+
     /**
      * 上传图片
      *
@@ -159,6 +163,10 @@ public class ArticleController {
      */
     @PostMapping("upload")
     public void upload(MultipartHttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String version = request.getParameter("version");
+        JSONObject jsonObject = new JSONObject();
+        JSONArray urlArray = new JSONArray();
         String fileurl = "error|服务器端错误";
         List<MultipartFile> imgFileList = request.getFiles("file");
         if (CollectionUtils.isNotEmpty(imgFileList)) {
@@ -169,9 +177,16 @@ public class ArticleController {
                     throw new CherishException(ExceptionEnum.UPLOAD_FILE_FAILED);
                 }
                 fileurl = ossProperties.getFileUrl() + "/" + fileName;
+                urlArray.add(fileurl);
             }
         }
-        response.getWriter().write(fileurl);
+        jsonObject.put("errno", 0);
+        jsonObject.put("data", urlArray);
+        if (StringUtils.isEmpty(version)) {
+            response.getWriter().write(fileurl);
+        } else if ("V3".equals(version)) {
+            response.getWriter().write(jsonObject.toJSONString());
+        }
     }
 
 }
