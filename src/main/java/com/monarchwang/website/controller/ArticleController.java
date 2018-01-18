@@ -6,6 +6,7 @@ import com.monarchwang.website.common.CherishException;
 import com.monarchwang.website.config.OssProperties;
 import com.monarchwang.website.controller.dto.ArticleCommentDto;
 import com.monarchwang.website.controller.dto.ArticleDto;
+import com.monarchwang.website.controller.dto.ArticleSummaryDto;
 import com.monarchwang.website.dao.mybatis.model.ArticleComment;
 import com.monarchwang.website.service.ArticleService;
 import com.monarchwang.website.utils.system.ExceptionEnum;
@@ -151,7 +152,14 @@ public class ArticleController {
         return responseData;
     }
 
+    @GetMapping(value = "getSummary")
+    public ResponseData<ArticleSummaryDto> findArticleSummary() {
+        ResponseData<ArticleSummaryDto> responseData = new ResponseData<>();
 
+        responseData.setData(articleService.findArticleSummary());
+
+        return responseData;
+    }
 
 
     /**

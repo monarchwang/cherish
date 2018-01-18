@@ -5,6 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.google.common.collect.Lists;
 import com.monarchwang.website.common.CherishException;
 import com.monarchwang.website.controller.dto.ArticleCommentDto;
+import com.monarchwang.website.controller.dto.ArticleSummaryDto;
+import com.monarchwang.website.controller.dto.TagDto;
 import com.monarchwang.website.dao.mybatis.mapper.ArticleCommentMapper;
 import com.monarchwang.website.dao.mybatis.mapper.ArticleMapper;
 import com.monarchwang.website.dao.mybatis.mapper.ArticleTagRelationMapper;
@@ -25,10 +27,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
@@ -206,11 +206,6 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Integer getArticleCount() {
-       return  articleMapper.getArticleCount();
-    }
-
-    @Override
     @Transactional
     public Integer saveComment(ArticleComment comment) {
         //首先获取评论所在楼层
@@ -272,5 +267,29 @@ public class ArticleServiceImpl implements ArticleService {
         }
 
         return praiseSum;
+    }
+
+    @Override
+    public ArticleSummaryDto findArticleSummary() {
+        ArticleSummaryDto dto = new ArticleSummaryDto();
+        List<Article> articleList = articleMapper.findByPage(1, null);
+
+        List<ArticleDto> articleDtos = Lists.newArrayList();
+        if (CollectionUtils.isNotEmpty(articleList)) {
+            articleList.forEach(article -> {
+                ArticleDto articleDto = new ArticleDto();
+                BeanUtils.copyProperties(article, articleDto);
+                articleDtos.add(articleDto);
+            });
+        }
+
+        List<TagDto> tagDtos = tagMapper.selectTagsByStatus(null);
+
+        List<String> tags = tagDtos.stream().map(TagDto::getName).distinct().collect(Collectors.toList());
+
+        dto.setArticleDtos(articleDtos);
+        dto.setTags(tags);
+
+        return dto;
     }
 }

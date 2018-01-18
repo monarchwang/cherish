@@ -2,6 +2,7 @@ package com.monarchwang.website.service;
 
 import com.monarchwang.website.controller.dto.ArticleCommentDto;
 import com.monarchwang.website.controller.dto.ArticleDto;
+import com.monarchwang.website.controller.dto.ArticleSummaryDto;
 import com.monarchwang.website.dao.mybatis.model.ArticleComment;
 import com.monarchwang.website.utils.response.ListResult;
 
@@ -23,11 +24,11 @@ public interface ArticleService {
 
     void release(int articleId);
 
-    Integer getArticleCount();
-
     Integer saveComment(ArticleComment comment);
 
     List<ArticleCommentDto> findCommentsByArticleId(Integer articleId);
 
     Integer praise(Integer blogId, Integer num);
+
+    ArticleSummaryDto findArticleSummary();
 }

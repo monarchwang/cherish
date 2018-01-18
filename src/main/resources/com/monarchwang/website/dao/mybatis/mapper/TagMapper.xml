@@ -43,7 +43,7 @@
         LEFT JOIN article_tag_relation atr ON t.id = atr.tag_id
         WHERE t.delete_flag = 0
         <if test="status != null">
-            AND status = #{status}
+            AND t.status = #{status}
         </if>
         GROUP BY t.id
         ORDER BY t.create_time DESC
