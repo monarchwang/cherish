@@ -46,7 +46,7 @@
         WHERE id = #{id}
     </update>
     <select id="findByPage" resultMap="BaseResultMap">
-        SELECT a.* FROM article a
+        SELECT DISTINCT a.* FROM article a
         LEFT JOIN article_tag_relation atr ON a.id = atr.article_id
         LEFT JOIN tag t ON atr.tag_id = t.id
         WHERE a.delete_flag = 0
