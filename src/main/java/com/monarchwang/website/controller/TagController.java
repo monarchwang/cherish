@@ -75,14 +75,14 @@ public class TagController {
 
 
     @PostMapping("update")
-    public ResponseData<String> update(Integer id, Integer status) {
+    public ResponseData<String> update(@RequestBody TagDto tagDto) {
         ResponseData<String> responseData = new ResponseData<>();
 
-        if (id == null) {
+        if (tagDto == null) {
             responseData.setStatus(RespStatus.FAIL);
             responseData.setMsg("id不能为空");
         } else {
-            tagService.updateTagStatus(id, status);
+            tagService.updateTagStatus(tagDto.getId(), tagDto.getStatus());
         }
 
         return responseData;

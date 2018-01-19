@@ -15,7 +15,7 @@ public class TagDto {
 
     private String name;
 
-    private Byte status;
+    private int status;
 
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
