@@ -41,7 +41,7 @@ public class UserController {
             boolean exist = userService.checkUserPwd(username, password);
             if (exist) {
                 String token = UUID.randomUUID().toString();
-                redisService.set(token, token, DEFAULT_EXPIRE_MINUTES, TimeUnit.MINUTES);
+               // redisService.set(token, token, DEFAULT_EXPIRE_MINUTES, TimeUnit.MINUTES);
                 UserDataDto userDataDto = new UserDataDto();
                 userDataDto.setAccessToken(token);
                 userDataDto.setUsername(username);
