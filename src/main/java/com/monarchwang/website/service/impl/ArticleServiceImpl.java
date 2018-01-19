@@ -271,6 +271,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ArticleSummaryDto findArticleSummary() {
+
         ArticleSummaryDto dto = new ArticleSummaryDto();
         List<Article> articleList = articleMapper.findByPage(1, null);
 

@@ -2,6 +2,7 @@ package com.monarchwang.website.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.monarchwang.website.common.RedisService;
+import com.monarchwang.website.controller.dto.UserDataDto;
 import com.monarchwang.website.service.UserService;
 import com.monarchwang.website.utils.response.RespStatus;
 import com.monarchwang.website.utils.response.ResponseData;
@@ -28,8 +29,8 @@ public class UserController {
     private static final Integer DEFAULT_EXPIRE_MINUTES = 15;
 
     @PostMapping("login")
-    public ResponseData<String> checkUser(@RequestBody JSONObject params) {
-        ResponseData<String> responseData = new ResponseData<>();
+    public ResponseData<UserDataDto> checkUser(@RequestBody JSONObject params) {
+        ResponseData<UserDataDto> responseData = new ResponseData<>();
 
         String password = params.getString("password");
         String username = params.getString("username");
@@ -41,7 +42,10 @@ public class UserController {
             if (exist) {
                 String token = UUID.randomUUID().toString();
                 redisService.set(token, token, DEFAULT_EXPIRE_MINUTES, TimeUnit.MINUTES);
-                responseData.setData(token);
+                UserDataDto userDataDto = new UserDataDto();
+                userDataDto.setAccessToken(token);
+                userDataDto.setUsername(username);
+                responseData.setData(userDataDto);
             } else {
                 responseData.setStatus(RespStatus.FAIL);
                 responseData.setMsg("用户名或密码错误");
